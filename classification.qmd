@@ -4,16 +4,11 @@ format: html
 editor: visual
 ---
 
-During my free time and from my Masters of Geomatics for Environmental Management (MGEM) at UBC, I have learned a range of remote sensing techniques and skills.
-
-Below are some of those projects, current and past.
-
 ### Land Classification
 
 The Remote Sensing course in MGEM taught me how to produce landscape classifications using a variety of supervised and unsupervised classification processes. Fascinated by different classification processes and the maps it produced, I extended this skill to produce a number of classified maps of various landscapes where Landsat and Copernicus satellite data was available. Generally my focus was with the Howe Sound Biosphere as it was part of my capstone project at UBC and is where I spend my time hiking, skiing and climbing. Below are some of the results of recent pixel classifications.
 
-Below is a slide-by-side comparison of two different classification processes of the Howe Sound. The left side is classified under a supervised process using hand-delineated polygons, 20/80 training to validation, with custom R code. The right shows a classification using the ArcGIS Pro deeplearning land cover classification. The idea here is to visualize the difference and address the accuracies between the two classification models. How do you think they compare?
-
+Below is a slide-by-side comparison of two different classification processes of the Howe Sound. The left side is classified under a supervised process using hand-delineated polygons, 20/80 training to validation, with custom R code. The right shows a classification using the ArcGIS Pro deep learning land cover classification. The idea here is to visualize the difference and address the accuracy between the two classification models. How do you think they compare?
 
 ```{r leaflet, echo=FALSE, warning=FALSE, message=FALSE}
 library(leaflet)
@@ -86,4 +81,3 @@ something <- leaflet(width = 600, height = 600)%>%
 
 something
 ```
-
