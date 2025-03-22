@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.40">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>This is Cortes – Max Lorsignol</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+/* CSS for citations */
+div.csl-bib-body { }
+div.csl-entry {
+  clear: both;
+  margin-bottom: 0em;
+}
+.hanging-indent div.csl-entry {
+  margin-left:2em;
+  text-indent:-2em;
+}
+div.csl-left-margin {
+  min-width:2em;
+  float:left;
+}
+div.csl-right-inline {
+  margin-left:2em;
+  padding-left:1em;
+}
+div.csl-indent {
+  margin-left: 2em;
+}</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting-549806ee2085284f45b00abea8c6df48.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap-fd053a38988e21bb3d3b0b617a2084cf.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Max Lorsignol</span>
+    </a>
+  </div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-gis" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">GIS</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-gis">    
+        <li>
+    <a class="dropdown-item" href="./OECMParcelSelection.html">
+ <span class="dropdown-text">OECM Parcel Selection</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-remote-sensing" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Remote Sensing</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-remote-sensing">    
+        <li>
+    <a class="dropdown-item" href="./classification.html">
+ <span class="dropdown-text">Classification</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./itd.html">
+ <span class="dropdown-text">Individual Tree Detection Methods in R</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-landscape-ecology" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Landscape Ecology</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-landscape-ecology">    
+        <li>
+    <a class="dropdown-item" href="./murrelet.html">
+ <span class="dropdown-text">Murrelet Habitat Connectivity</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-diverse-knowledge-systems" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Diverse Knowledge Systems</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-diverse-knowledge-systems">    
+        <li>
+    <a class="dropdown-item" href="./cortes.html">
+ <span class="dropdown-text">This Is Cortes</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-personal-projects" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Personal Projects</span>
+    </a>
+    <ul class="dropdown-menu" aria-labelledby="nav-menu-personal-projects">    
+        <li>
+    <a class="dropdown-item" href="./vanlife.html">
+ <span class="dropdown-text">Off Grid Camper Van Build</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="./floatingstaircase.html">
+ <span class="dropdown-text">Floating Staircase</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="./cv2.html"> 
+<span class="menu-text">CV</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./contact.html"> 
+<span class="menu-text">Contact</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#audience-specific-messaging-for-cortes-island" id="toc-audience-specific-messaging-for-cortes-island" class="nav-link active" data-scroll-target="#audience-specific-messaging-for-cortes-island">Audience Specific Messaging for Cortes Island</a>
+  <ul class="collapse">
+  <li><a href="#non-indigenous-residents" id="toc-non-indigenous-residents" class="nav-link" data-scroll-target="#non-indigenous-residents">Non-Indigenous Residents</a></li>
+  <li><a href="#this-is-cortes-forestry-from-the-roots-up" id="toc-this-is-cortes-forestry-from-the-roots-up" class="nav-link" data-scroll-target="#this-is-cortes-forestry-from-the-roots-up">This is Cortes: Forestry from the Roots Up</a></li>
+  <li><a href="#provincial-government-ministry-of-forests" id="toc-provincial-government-ministry-of-forests" class="nav-link" data-scroll-target="#provincial-government-ministry-of-forests">Provincial Government, Ministry of Forests</a></li>
+  <li><a href="#cortes-together-a-forward-thinking-approach-with-a-proven-foundation" id="toc-cortes-together-a-forward-thinking-approach-with-a-proven-foundation" class="nav-link" data-scroll-target="#cortes-together-a-forward-thinking-approach-with-a-proven-foundation">Cortes Together: A Forward-Thinking Approach with a Proven Foundation</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">This is Cortes</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="audience-specific-messaging-for-cortes-island" class="level2">
+<h2 class="anchored" data-anchor-id="audience-specific-messaging-for-cortes-island">Audience Specific Messaging for Cortes Island</h2>
+<p>Authors: Genevieve Doiron &amp; Max Lorsignol</p>
+<section id="non-indigenous-residents" class="level3">
+<h3 class="anchored" data-anchor-id="non-indigenous-residents">Non-Indigenous Residents</h3>
+<p>Cortes Island is home to approximately 1000 year-round residents dispersed between the communities of Cortes Bay, Whaletown, Squirrel Cove and Mansons Landing <span class="citation" data-cites="ourcomm2013">(<a href="#ref-ourcomm2013" role="doc-biblioref"><span>“Our Community”</span> 2013</a>)</span>. The community is diverse both in age and background. Including working professionals, young families, and retirees. Professions on the Island include “farmers, loggers, artists, educators, retirees” and those seeking a slower pace of life <span class="citation" data-cites="ourcomm2013">(<a href="#ref-ourcomm2013" role="doc-biblioref"><span>“Our Community”</span> 2013</a>)</span>. Their core values include independence, community connection, economic security, and preservation of nature. The communities on the island are close-knit, with active participation in community events and initiatives by locals of all ages <span class="citation" data-cites="ourcomm2013">(<a href="#ref-ourcomm2013" role="doc-biblioref"><span>“Our Community”</span> 2013</a>)</span>. They are connected by their shared desire to live independently, yet collaboratively, in a rural and natural setting. The values of self-reliance and resource based livelihoods are echoed in many of their chosen professions as farmers, loggers, and crafts-people. The communities on the island are quite rural, much of the appeal to live there is the area’s rugged wilderness and natural beauty, which also underpins the island’s tourism industry. With regards to the Cortes Forestry General Partnership community members value the forest through their personal connection to nature as well as their reliance on the forest and other natural resources for their livelihoods <span class="citation" data-cites="bullock2012">(<a href="#ref-bullock2012" role="doc-biblioref">Bullock and Hanna 2012</a>)</span>. Messaging should appeal to ethos and pathos; ethos through the delivery of the message from trusted and respected community members and pathos through an appeal to their emotional connection to the land and their community.</p>
+</section>
+<section id="this-is-cortes-forestry-from-the-roots-up" class="level3">
+<h3 class="anchored" data-anchor-id="this-is-cortes-forestry-from-the-roots-up">This is Cortes: Forestry from the Roots Up</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/cortes_image1.png" class="img-fluid figure-img"></p>
+<figcaption>Digital Art (by Max Lorsignol) representing the Local, Non-Indigenous People of Cortes</figcaption>
+</figure>
+</div>
+<p>Renewing the forest agreement is essential to ensuring that the voices of Cortes residents remain at the heart of decisions that shape our future. This agreement is crafted by us, for us—those who live here, understand this land, and are committed to its well-being. Outsiders should not determine the future of our island; we know our community and what it needs to thrive. This agreement protects our right to support each other and secure a sustainable future. It will bring us jobs, strengthening our local economy, and safeguard the forest, ensuring its health for generations to come. Together, we can shape the future of Cortes, protecting both our people and our environment.</p>
+<p>The core message of renewing the forest agreement directly appeals to the values of independence, community, livelihoods, and connection to nature that are central to Cortes Island residents. By centering that the agreement ensures decisions about the future of the island are made by those who live there, the message upholds the community’s desire for self-reliance and local control. It also highlights the economic benefits of sustainable forestry, promising job creation and a thriving local economy without compromising the island’s natural resources.</p>
+<p>The message appeals to the strong emotional bond residents have with the island’s wilderness. It positions the renewed agreement as a way to safeguard the forest for future generations, resonating with their commitment to preserving the environment as well as the multi-generational nature of the community. It offers a vision of ecological sustainability, where the forest is preserved not only for the current generation but for their children and grandchildren as well. Cortes Island is a close-knit community, where collaboration and mutual support are integral to daily life. By emphasizing that the agreement is crafted by residents, for residents, the message highlights the role of the community in shaping its own future. It reminds residents that, together, they can make decisions that benefit both people and the land, fostering a sense of unity and collective responsibility. It encourages residents to unite in protecting both the land and their way of life, ensuring that Cortes remains the vibrant community they love.</p>
+<p>The message focuses on community more than the economic benefits of the partnership because people tend to respond most strongly to appeals on emotion. Words such as “us”, “together”, “heart”, and “protect” were used to invoke an emotional response towards security and closeness, such that the residents would opt to stay with the status quo. This message would be best delivered by trusted and respected community members, appealing to ethos and pathos at once. The visual is meant to support the message by depicting the beautiful nature they love with the vibrant diverse and inter-generational community it supports. The forest is drawn as lush and vibrant, framing the resource as the center of the discussion and alluding to the fact that supporting the agreement would support the forest health.</p>
+</section>
+<section id="provincial-government-ministry-of-forests" class="level3">
+<h3 class="anchored" data-anchor-id="provincial-government-ministry-of-forests">Provincial Government, Ministry of Forests</h3>
+<p>The British Columbia Ministry of Forests is committed to a sustainable and competitive forest sector that prioritizes forest stewardship, worker support, innovation, and climate resilience. The Ministry values collaboration with First Nations, industry, and other stakeholders to ensure that forest management practices are effective, inclusive, and forward-thinking <span class="citation" data-cites="forests">(<a href="#ref-forests" role="doc-biblioref">Forests, n.d.</a>)</span>. Generally their framework is guided by western ideologies, scientific research and economic priorities. While they publicize their commitment to integrate Indigenous knowledge systems within that framework, historically the approach is of a western, empirical and policy driven perspective. That being said, as a government body, the Ministry is also deeply concerned with public perception and voter approval. As such, they would likely respond to messaging that aligns itself with their public priorities. They would be seeking to demonstrate that the forest policies they promote benefit both the environment and local communities.</p>
+<p>Messaging to the Ministry should appeal to logos, emphasizing the proven track record of the CFGP in successfully balancing environmental sustainability, local job creation, and community collaboration. Governments are typically resistant to change, especially when existing solutions are working, so highlighting the cooperative’s successful model will help reinforce the idea that this approach is effective, trusted, and aligned with the Ministry’s goals for sustainability and public support.</p>
+</section>
+<section id="cortes-together-a-forward-thinking-approach-with-a-proven-foundation" class="level3">
+<h3 class="anchored" data-anchor-id="cortes-together-a-forward-thinking-approach-with-a-proven-foundation">Cortes Together: A Forward-Thinking Approach with a Proven Foundation</h3>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="images/cortes_image2.png" class="img-fluid figure-img"></p>
+<figcaption>Digital Art (by Max Lorsignol) representing the Minitstry of Forests, <em>forward thinking approach</em></figcaption>
+</figure>
+</div>
+<p>The Cortes Forestry General Partnership (CFGC) has proven success; it is economically viable, environmentally responsible, and widely supported. Through four community-backed harvests, the CFGC has shown the effectiveness of a public, private, resident, and Indigenous cooperation. The partnership has strengthened the local economy, created jobs, and preserved the island’s natural resources. The best path forward is one with a proven foundation, built brick by brick by the community it supports. The best path forward is together.</p>
+<p>The core message directly appeals to the Ministry of Forests’ focus on sustainability, economic viability, and public support. The message is grounded in logos, highlighting the proven success of CFGP in balancing environmental stewardship, job creation, and community collaboration. The message appeals to the government’s goal to create a competitive forest sector by referring to the successful harvests and jobs created. It also appeals to ethos by stating that the forestry practices of the agreement are scientifically grounded.</p>
+<p>As well, the emphasis on community support is particularly relevant to the Ministry, as public perception and voter approval are critical factors in government decision-making. The successful integration of local residents and the Klahoose First Nation through the CFGP showcases a collaborative approach that the government seeks to foster. As well given past disagreements and protests from the First Nation and non-Indigenous community members with forestry companies <span class="citation" data-cites="bullock2012">(<a href="#ref-bullock2012" role="doc-biblioref">Bullock and Hanna 2012</a>)</span>, highlighting the community support of the agreement also positions it as superior to previous approaches. The visual created supports this message by showing government officials, community members, and First Nations leaders collaborating in a round table discussion. The visual depicts this happening in the forest, which is drawn as lush and vibrant with towering trees. This is in order to center the resource and frame it as prosperous and healthy while shown in tandem with heavy machinery – depicting a sustainable forest industry. Government’s are typically risk averse and resistant to change, especially when a plan is working effectively. The message directly plays to this understanding by stating the agreement’s success and questioning any reason for change. The message clearly positions renewing the agreement as the proven, popular, and politically advantageous option.</p>
+
+
+
+</section>
+</section>
+
+<div id="quarto-appendix" class="default"><section class="quarto-appendix-contents" role="doc-bibliography" id="quarto-bibliography"><h2 class="anchored quarto-appendix-heading">References</h2><div id="refs" class="references csl-bib-body hanging-indent" data-entry-spacing="0" role="list">
+<div id="ref-bullock2012" class="csl-entry" role="listitem">
+Bullock, R. C. L., and K. S. Hanna. 2012. <em>Community Forestry: Local Values, Conflict and Forest Governance</em>. <a href="https://ebookcentral.proquest.com">https://ebookcentral.proquest.com</a>.
+</div>
+<div id="ref-forests" class="csl-entry" role="listitem">
+Forests, Ministry of. n.d. <span>“Forest Stewardship - Province of British Columbia.”</span> <a href="https://www2.gov.bc.ca/gov/content/industry/forestry/managing-our-forest-resources">https://www2.gov.bc.ca/gov/content/industry/forestry/managing-our-forest-resources</a>.
+</div>
+<div id="ref-ourcomm2013" class="csl-entry" role="listitem">
+<span>“Our Community.”</span> 2013. <a href="https://ourcortes.com/our-community/">https://ourcortes.com/our-community/</a>.
+</div>
+</div></section></div></main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>
