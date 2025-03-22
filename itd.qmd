@@ -1,0 +1,116 @@
+---
+title: "Individual Tree Detection Methods"
+format: html
+editor: visual
+bibliography: references.bib
+---
+
+In this report, I preprocess and analyze LiDAR data using R and various geospatial libraries in R such as lidR, terra, and tidyverse. The objective is to detect trees, individually, by using two different algorithms.
+
+The [@li2012] method relies on a local maxima filtering approach applied to a Canopy Height Model (CHM). I smooth the CHM to reduce noise and extract tree tops using a variable window size, ensuring better accuracy in detecting dominant trees and visualize the detected trees and assess the segmentation results.
+
+The [@dalponte2016] method incorporates a marker-controlled watershed segmentation, which refines tree crown delineation based on spectral and structural characteristics. Using a Gaussian smoothing filter and use the tree segmentation function in lidR to identify tree crowns, I compare the results with the Li et al. method to evaluate their effectiveness. Throughout this process, I fine-tune parameters such as smoothing intensity, window size, and threshold values to optimize tree detection accuracy. The results allow me to assess the effectiveness of these ITD methods in forest structure analysis and remote sensing applications.
+
+```{r load packages & directory, warning=FALSE, message=FALSE, echo=FALSE}
+#| execute: true
+#| eval: true
+#| code-fold: true
+#| code-summary: "Show/Hide Code"
+
+library(lidR)
+library(terra)
+library(tidyverse)
+library(rgl)
+library(htmlwidgets)
+
+# set working directory
+setwd("~/GEM 521/Lab 5/Data")
+wd <- "~/GEM 521/Lab 5/Data"   # create a variable string working directory
+```
+
+## Visualize
+
+Below is a interactive visualization of one of the extracted plots from Malcom Knapp Research Forest. We will be detecting each one of these trees using two different tree detection methods.
+
+```{r 3d visual, warning=FALSE, message=FALSE, echo=FALSE, results='hide'}
+#| execute: true
+#| eval: true
+#| warning: false
+#| message: false
+#| code-fold: true
+#| code-summary: "Show/Hide Code"
+
+# Read in one of the plots
+plot_1 <- readLAS("~/GEM 521/Lab 5/Data/Plots/Plot_1.las")
+
+# Open a 3D rendering window for Li et al.2012
+open3d()
+plot(plot_1)
+rglwidget_obj_plot_1 <- rglwidget()
+saveWidget(rglwidget_obj_plot_1, file = "interactive_plot_1.html", selfcontained = TRUE)
+```
+
+::: {html}
+<iframe src="interactive_plot_1.html" width="100%" height="600px">
+
+</iframe>
+:::
+
+## ITD using Li (2012)
+
+```{r li2012 visual, warning=FALSE, message=FALSE, echo=FALSE, results='hide'}
+#| execute: true
+#| eval: true
+#| warning: false
+#| message: false
+#| code-fold: true
+#| code-summary: "Show/Hide Code"
+
+# segment each plot using li2012 algorithm
+plot_1_seg <- segment_trees(plot_1, li2012(dt1 = 1.5, dt2 = 2, R = 2, Zu = 15, hmin = 2, speed_up = 10))
+
+# Open a 3D rendering window for Li et al.2012
+open3d()
+plot(plot_1_seg, color = "treeID")
+rglwidget_plot1_li <- rglwidget()
+saveWidget(rglwidget_plot1_li, file = "interactive_plot1_li.html", selfcontained = TRUE)
+```
+
+::: {html}
+<iframe src="interactive_plot1_li.html" width="100%" height="600px">
+
+</iframe>
+:::
+
+## ITD using Dalponte Coomes (2016)
+
+```{r dalp2016 visual, warning=FALSE, message=FALSE, echo=FALSE, results='hide'}
+#| execute: true
+#| eval: true
+#| warning: false
+#| message: false
+#| code-fold: true
+#| code-summary: "Show/Hide Code"
+
+# create chm for plot 1 with given pitfree values
+chm_plot1 <- rasterize_canopy(plot_1, res = 0.5, 
+                         algorithm = pitfree(c(0, 10, 20, 30), subcircle = 0.2))
+
+# use the locate_trees to 'locate the trees' using default values
+plot1_lmf <- locate_trees(chm_plot1, lmf(ws = 5, hmin = 2, shape = "circular", ws_args = "z"))
+
+# segment point cloud using dalponte2016
+plot1_dalp <- segment_trees(plot_1, dalponte2016(chm_plot1, treetops = plot1_lmf))
+
+# Open a 3D rendering window for Li et al.2012
+open3d()
+plot(plot1_dalp, color = "treeID")
+rglwidget_plot1_dalp <- rglwidget()
+saveWidget(rglwidget_plot1_dalp, file = "interactive_plot1_dalp.html", selfcontained = TRUE)
+```
+
+::: {html}
+<iframe src="interactive_plot1_dalp.html" width="100%" height="600px">
+
+</iframe>
+:::

@@ -1,0 +1,25 @@
+---
+title: "Floating Staircase"
+format: html
+editor: visual
+---
+
+## *Page Currently Under Construction*
+
+In 2021, during COVID19 lock down, I undertook a project for a family friend in the design and construction of a floating staircase made of Jatoba hardwood.
+
+The designing was done on SketchUp, and all the woodworking in a nearby workshop.
+
+Below are some images of this project.
+
+![The stairwell, gutted and ready for a new staircase!](images/staircase_void.jpeg)
+
+![Modelling the staircase using SketchUp](images/staircase_model1.jpeg)
+
+![Another screeshot of the modelling process](images/staircase_model2.jpeg)
+
+![Many hours later, the almost finished project (the handrails were not documented)](images/staircase_finished1.jpg)
+
+![Another shot of the finished product](images/staircase_finished2.jpg)
+
+![The overall shot. The client was extremely pleased.](images/staircase_finished3.jpg)

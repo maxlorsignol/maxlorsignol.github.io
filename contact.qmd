@@ -1,0 +1,14 @@
+---
+title: "Contact"
+format: html
+editor: visual
+---
+
+I am always eager to connect! If you have any questions, opportunities or just want to say hi, feel free to reach out through any of the channels below:
+
+|  |
+|:--:|
+| **email:** [maxlorsignol\@gmail.com](mailto:maxlorsignol@gmail.com) |
+| **phone:** [780-340-6128](tel:+17803406128) |
+| **LinkedIn:** [Max Lorsignol](https://www.linkedin.com/in/max-lorsignol-bb854595/) |
+| **GitHub:** [maxlorsignol](https://github.com/maxlorsignol) |

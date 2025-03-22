@@ -1,0 +1,89 @@
+---
+title: "Classification"
+format: html
+editor: visual
+---
+
+During my free time and from my Masters of Geomatics for Environmental Management (MGEM) at UBC, I have learned a range of remote sensing techniques and skills.
+
+Below are some of those projects, current and past.
+
+### Land Classification
+
+The Remote Sensing course in MGEM taught me how to produce landscape classifications using a variety of supervised and unsupervised classification processes. Fascinated by different classification processes and the maps it produced, I extended this skill to produce a number of classified maps of various landscapes where Landsat and Copernicus satellite data was available. Generally my focus was with the Howe Sound Biosphere as it was part of my capstone project at UBC and is where I spend my time hiking, skiing and climbing. Below are some of the results of recent pixel classifications.
+
+Below is a slide-by-side comparison of two different classification processes of the Howe Sound. The left side is classified under a supervised process using hand-delineated polygons, 20/80 training to validation, with custom R code. The right shows a classification using the ArcGIS Pro deeplearning land cover classification. The idea here is to visualize the difference and address the accuracies between the two classification models. How do you think they compare?
+
+
+```{r leaflet, echo=FALSE, warning=FALSE, message=FALSE}
+library(leaflet)
+library(leaflet.extras2)
+library(terra)
+library(raster)
+library(tmap)
+library(tmaptools)
+library(FedData)
+
+LC_ArcGIS_DeepLearning <- rast("data/hs_composite_DL_ClassifyP.tif")
+Random_Forests <- rast("data/randomforests_howesound_classification.tif")
+
+something <- leaflet(width = 600, height = 600)%>%
+  
+  #set initial view
+  setView(lng = -123.185, lat = 49.682, zoom = 12) %>% 
+  
+  #set up the two map panes
+  addMapPane("right", zIndex = 1) %>%
+  addMapPane("left",  zIndex = 2) %>%
+  
+  #add the ESRI basemap to both map panes
+  addProviderTiles("CartoDB.Positron", group = "base", layerId = "baseid1", options = pathOptions(pane = "right")) %>%
+  addProviderTiles("CartoDB.Positron", group = "base", layerId = "baseid2", options = pathOptions(pane = "left")) %>%
+  
+  #now lets add our Random_Forests
+  addRasterImage(Random_Forests, 
+                 #you can increase the allowable size of the rast here
+                 maxBytes = 10 * 1024 *1024,
+                 #provide a name for the layer
+                 group = "Random_Forests",
+                 #assign to a pane
+                 options = leafletOptions(pane = "left")) %>%
+  
+  #now lets add our LC_ArcGIS_DeepLearning
+  addRasterImage(LC_ArcGIS_DeepLearning, 
+                 #you can increase the allowable size of the rast here
+                 maxBytes = 10 * 1024 *1024,
+                 #provide a name for the layer
+                 group = "LC_ArcGIS_DeepLearning",
+                 #assign to a pane
+                 options = leafletOptions(pane = "right")) %>%
+  
+  #allow for layers to be toggles on/off by adding them to the layers control
+  addLayersControl(overlayGroups = c("Random_Forests", "LC_ArcGIS_DeepLearning")) %>%
+  
+  #add slider control
+  addSidebyside(layerId = "sidecontrols",
+                rightId = "baseid1",
+                leftId  = "baseid2",
+                options = list(padding = 0)) %>%
+  
+  #add scale bar
+  addScaleBar(position = c("bottomleft")) %>% 
+
+  leaflet::addControl(
+    html = "<div style='background: rgba(255,255,255,0.8); padding: 5px;'>
+              <img src='images/randomforests_classification_legend.png' style='width:150px;'>
+            </div>",
+    position = "bottomleft"
+  ) %>%
+    
+  leaflet::addControl(
+    html = "<div style='background: rgba(255,255,255,0.8); padding: 5px;'>
+              <img src='images/deep_learning_classification_legend.png' style='width:150px;'>
+            </div>",
+    position = "bottomright"
+  )
+
+something
+```
+

@@ -1,0 +1,25 @@
+---
+title: "Max Lorsignol"
+image: images/headshot_1.png
+about:
+  template: trestles
+  image-width: 20em
+  links: 
+    - icon: linkedin
+      text: LinkedIn
+      href: https://www.linkedin.com/in/max-lorsignol-bb854595/
+    - icon: github
+      text: GitHub
+      href: https://github.com/maxlorsignol
+    - icon: envelope-at
+      text: Email
+      href: mailto:maxlorsignol@gmail.com
+---
+
+Hi, my name is Max Lorsignol.
+
+I am currently pursuing a Master's degree in Geomatics for Environmental Management at UBC. What is geomatics, you ask? In a nutshell, geomatics is the science and technology of collecting, analyzing, managing, and visualizing spatial data. Ever since I was a child, I’ve been fascinated by the maps my father used for his mountaineering adventures. Today, I’m leveraging that lifelong love for mapping and applying it with modern tools and standards to be a part of the conservation and environmental efforts of the 21^st^ century.
+
+When I’m not crafting digital maps or doing spatial analyses, you’ll find me outdoors, navigating the rugged mountains of the west coast with the same passion for exploration. My goal is to combine the skills I’ve developed through my education and personal experiences to address pressing issues related to environmental management, natural resources, climate change, and land use management. I hope to make a meaningful difference in creating sustainable solutions for the challenges our world faces today.
+
+![GIF of a forest plot with Individual Trees Segmented using li2012, colorized by TreeID](images/plot_1_seg_treeID_750x750_white_2degree_10fps.gif)

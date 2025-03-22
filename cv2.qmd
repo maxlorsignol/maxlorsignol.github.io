@@ -1,0 +1,101 @@
+---
+title: "CV"
+format: html
+editor: visual
+---
+
+[Click Here to download the PDF](Geomatics%20Resume.pdf){download="Max Lorsignol's Resume"}
+
+## Skills and Certificates
+
+#### GIS and Spatial Data Management
+
+-   ArcGIS Pro, QGIS, ENVI, FME
+-   ArcGIS Model Builder and Experience Builder
+-   PostgreSQL for Spatial Databases
+-   Remote Sensing & Cartography
+
+#### Technical & Software Procifiency
+
+-   Python, R, SQL
+-   Adobe Suite (Illustrator, Photoshop), SketchUp, Procreate
+-   Microsoft Office (Excel, Word, PowerPoint)
+
+#### Certifications & Licenses
+
+-   Class 5 Drivers License
+-   WorkSafeBC
+-   WHMIS Certified
+-   First Aid (WFA 40 Hour)
+-   Boating License
+-   Drone License
+
+## Education
+
+![](images/UBC_logo.png)
+
+-   Masters in Geomatics for Environmental Management UBC Vancouver (2024-2025)
+
+-   B.Sc Earth and Environmental Science UBC Okanagan (2016-2019)
+
+## Professional Experience
+
+### Lead Field Technician at AquaCoustic Remote Technologies
+
+(2020-2024)
+
+-   Setting up, testing and deploying robotic platforms including crawlers and pontoons of different sizes, ROVs, and submersibles to collect video, sonar, laser and additional sensor data
+
+-   Inspections, cleaning and maintenance of robotic platforms, fiber optic winches, vehicles and other warehouse equipment
+
+-   Hands-on troubleshooting, assembly and repair of equipment inhouse and in the field
+
+-   Keeping accurate daily logs and other detailed inspections sheets and paperwork
+
+-   Utility vehicle interior designing, building and maintenance, including office space, electronics and winches
+
+-   Nightwork and all-weather type field work, working independently, within a team capacity and with other contractors
+
+-   Processing sonar, laser and video data using custom and sourced software\
+
+### Co-Founder Canopy Campers Van Rentals
+
+(2023 - Present)
+
+-   Modelling van interiors using SketchUp for fully off-grid 4-person camper vans
+
+-   Custom woodworking and metal working for modular van camping set-ups
+
+-   Client interaction & conlfict resolution online and in person, cash and POI transactions
+
+-   Vehicle maintenance and repairs, regular cleaning, organizing and restocking
+
+### Visitors Service Attendant for Banff National Park
+
+(Summers 2018 and 2019)
+
+-   Public outreach: Providing orientation, information and suggestions to visitors in Banff National Park
+
+-   Enforcing Park closures, restrictions and regulations with compliance and ticketing
+
+-   Employee uniform and accessories inventory, distribution and organizing
+
+-   Updating Dispatch and Resource Conservation on wildlife encounters, fires and other public safety concerns
+
+-   Customer service - Handling cash and credit POS transactions in any weather situation quickly and effectively
+
+### Publications
+
+*Reports:*
+
+-   FCOR 599 OECM Land Designation in Howe Sound Biosphere.
+
+### Other Experiences
+
+*Volunteering:*
+
+-   Stanley Park Ecology DIRT (Dedicated Invasive Removal Team)
+
+-   AME Roundup
+
+-   ChuckleBerry Organic Farm

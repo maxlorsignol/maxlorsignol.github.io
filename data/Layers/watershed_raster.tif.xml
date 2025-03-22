@@ -1,0 +1,2 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata xml:lang="en"><Esri><CreaDate>20250224</CreaDate><CreaTime>21540800</CreaTime><ArcGISFormat>1.0</ArcGISFormat><SyncOnce>TRUE</SyncOnce><DataProperties><lineage><Process ToolSource="c:\program files\arcgis\pro\Resources\ArcToolbox\toolboxes\Conversion Tools.tbx\PolygonToRaster" Date="20250224" Time="215408">PolygonToRaster Watersheds\Watersheds_HS OBJECTID_1 "C:\Users\lorsigno.stu\Documents\Projects\OECM WebApp\Layers\watershed_raster.tif" CELL_CENTER NONE 30 BUILD</Process></lineage></DataProperties></Esri></metadata>

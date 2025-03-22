@@ -1,0 +1,113 @@
+---
+title: "Marbled Murrelet Habitat Connectivity"
+format: html
+editor: visual
+code-fold: true
+bibliography: references.bib
+---
+
+### Introduction
+
+This study aims to investigate the relationship between nesting habitats of the Marbled Murrelet and mapped sensitive ecosystems on Gambier Island in British Columbia. Using a patch-based connectivity model evaluating habitat availability called Grains of Connectivity (GoC), the research will focus on the critical habitat of the Marbled Murrelet and their spatial relation to existing Old Growth Management Areas (OGMA). This study aims to provide insight on the habitat fragmentation and the spatial connectivity in hopes to provide leverage for effectively conserving this critical species at risk and fragile ecosystems.
+
+Gambier Island, also known as Cha7élkwnech in the Squamish language, is located in the Howe Sound near Vancouver, BC. Encompassing roughly 70 square kilometers of complex landscapes and sensitive ecosystems (Figure 1), the present forests serve as important habitats for a range of endangered species [@butler]. The historical pressures from logging, human settlement, and recreation have affected the biodiversity of the landscape and requires vigilant assessment to maintain a healthy ecosystem.
+
+The Marbled Murrelet is a threatened seabird that has the potential to be strongly influenced by forest fragmentation and edge effects [@malt2009]. They spend most of their time searching for food in coastal waters, but unlike other seabirds, they can fly up to 50km inland to nest [@nelson2020] and are strongly associated with late-successional and old-growth forests, buildings its’ nests on large branches in tall trees [@raphael2002]. The species was listed under the Species at Risk Act in 2012 and has been identified as a priority for conservation in many regional conservation strategies in Canada [@bertram2015].
+
+### Methods
+
+The data for this study comes from two primary data sources. The first source is the Island Trust, a special purpose government serving the islands in the Salish Sea and Howe Sounds responsible for preserving and protecting the islands’ environments [@forests]. The second source is the Critical Habitat for Species at Risk National Dataset of Canada created by Environment and Climate Change Canada (ECCC) for terrestrial species [@canada]. These two data sets will be analyzed using R and ArcGIS Pro software and serve for the ecological network connectivity analysis.
+
+The first step in this analysis is to rasterize the Sensitive Ecosystem Mapping (SEM) Air photo such that it can be used to create a land classification for the connectivity analysis. The second step is to do a similar rasterization of the Marbled Murrelet data and attribute link threshold characteristics to the seabird data set like flight distance capabilities and preferential flight pathing. Similarly, resistance values need to be assigned to the terrestrial classified landscape in order to create a minimum planar graph (MPG). These resistance values will affect the movement of Marbled Murrelet through the landscape and are necessary to understand the species connectivity and reliance on specific ecosystems.
+
+![Gambier Island Sensitive Ecosystem Mapping for Gambier Island](images/murrelet_SEM.png)
+
+After the rasterization and landscape reclassification of the SEM, OGMA and Marbled Murrelet habitat, a series of ecological analyses will be performed. Specifically, a network analysis utilizing the MPG to create a least-cost path model for the Marbled Murrelet, and with varying threshold values, a grains of connectivity (GoC) analysis. A variety of landscape metrics using the landscapemetrics package in R will be applied to the reclassified ecosystems including PLAND (percentage of landscape), NP (number of patches), CAI_MN (mean of core area index), LPI (largest patch index) and other metrics useful to determine the fragmentation and ecosystem edges.
+
+```{r read, warning=FALSE, message=FALSE, echo=FALSE}
+#| code-fold: true
+#| code-summary: "Show/Hide Code"
+
+# packages
+library(raster)
+library(terra)
+library(ggplot2)
+library(landscapemetrics)
+library(FedData)
+library(tmap)
+library(dplyr)
+
+
+# load raster data
+
+hs_class <- rast("C:/Users/lorsigno.stu/Documents/GitHub/E-Portfolio/data/hs_composite_DL_ClassifyP.tif")
+
+data(hs_class)
+hs_class <- unwrap(hs_class)
+
+# develop a legend for the dataset 
+legend <- pal_nlcd()
+vals <- unique(hs_class)
+cover_types <- legend[legend$Class %in% vals[,1], ]
+```
+
+```{r landscape, warning=FALSE, message=FALSE, echo=FALSE}
+#| code-fold: true
+#| code-summary: "Show/Hide Code"
+#| fig-cap: "National Landcover Data for Howe Sound, Based on August 2023 data set."
+#| label: fig-data
+
+# visualize dataset
+landscape <- tm_shape(hs_class) +
+  tm_raster(palette = cover_types$Color,
+            labels = cover_types$Class,
+            style = "pretty",
+            title = "Landscape classes")
+landscape
+```
+
+Once we have our classified landscape, we can use the landscape metrics to extract the core areas and patches using specific landscape_metrics functions. Below is the resulting core areas of the Howe Sound landscape.
+
+![Core Areas from the Howe Sound Classification based on the NLCD Cover Types](images/murrelet_LandCover_cores.png) Now that we have our core areas, lets compare structural connectivity between barren land, evergreen forests, and low developed classes.
+
+We'll compare the following metrics at the class-level:
+
+-   CAI_MN: Mean of core area index (Core area metric)
+-   COHESION: Patch Cohesion Index (Aggregation metric)
+-   LPI: Largest patch index (Area and Edge metric)
+-   NP: Number of patches (Aggregation metric)
+-   PLAND: Percentage of landscape of class (Area and Edge metric)
+
+```{r metrics, warning=FALSE, message=FALSE, echo=FALSE}
+#| code-fold: true
+#| code-summary: "Show/Hide Code"
+#| fig-cap: "Values for structural connectivity metrics for the current landscape."
+#| label: fig-metrics
+
+# class-level metrics
+metrics_class <- calculate_lsm(hs_class,
+                               what = c("lsm_c_pland", "lsm_c_np",
+                                        "lsm_c_cai_mn",
+                                        "lsm_c_lpi", "lsm_c_cohesion"))
+
+# reformat
+metrics_class <- metrics_class %>%
+  filter(class == 22 | class == 42 | class == 31) %>%  # select classes we are interested in
+  mutate(class = recode(class, "22" = "Low Developed",  # rename classes with descriptive labels
+                               "42" = "Evergreen Forest",
+                               "31" = "Barren Land"))
+
+# plot
+ggplot(metrics_class, aes(class, value)) +
+  geom_point(aes(size = 3, color = class)) +
+  facet_wrap(~metric, scales = 'free') +
+  scale_x_discrete(guide = guide_axis(n.dodge = 2)) +
+  theme(legend.position = "none") +
+  labs(x = 'Class', y = 'Value')
+```
+
+### Expected Results & Significance
+
+This study is expected to show a connection between the preferred nesting habitats of the Marbled Murrelet, where they are located in relation to the mapped ecosystems on Gambier Island, and their proximity to the OGMAs. The analysis will likely reveal that edge forests, old growths, and other mature forested areas on the Island correlate to the birds' nesting habitat, in other words, provide crucial habitat sites for the species. There will likely be a connection between the extent of forested edges and its influence on the nesting habitats as the Murrelet.
+
+The connectivity analysis will highlight the links between the critical habitats and classified ecosystems, identifying preferential pathways for the Murrelet as well as barriers to their movement. It is likely that the values of calculated metrics will confirm the fragmentated state of the bird’s habitat and current OGMAs, supporting the need for further improvement of land protection and conservation efforts. It will link the locality and fragmentation of the OGMAs to Gambier's SEM and Murrelet habitat. Ultimately, by identifying critical connections and areas of fragmentation, this study will inform future efforts to reduce habitat loss and improve landscape connectivity for species conservation on Gambier Island.

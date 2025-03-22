@@ -1,0 +1,49 @@
+project:
+  type: website
+  output-dir: c:\Users\lorsigno.stu\OneDrive - UBC\Desktop\Documents\GitHub\E-Portfolio
+  
+resources:
+  - "Geomatics Resume.pdf"
+
+website:
+  title: "Max Lorsignol"
+  search: false
+  navbar:
+    left:
+      - href: index.qmd
+        text: Home
+      - text: GIS
+        menu:
+          - href: OECMParcelSelection.qmd
+            text: OECM Parcel Selection
+      - text: Remote Sensing
+        menu:
+          - href: classification.qmd
+            text: Classification
+          - href: itd.qmd
+            text: Individual Tree Detection Methods in R
+      - text: Landscape Ecology
+        menu:
+          - href: murrelet.qmd
+            text: Murrelet Habitat Connectivity
+      - text: Diverse Knowledge Systems
+        menu:
+          - href: cortes.qmd
+            text: This Is Cortes
+      - text: Personal Projects
+        menu:
+          - href: vanlife.qmd
+            text: Off Grid Camper Van Build
+          - href: floatingstaircase.qmd
+            text: Floating Staircase
+      - href: cv2.qmd
+        text: CV
+      - href: contact.qmd
+        text: Contact
+      
+format:
+  html:
+    theme: yeti
+    toc: true
+
+editor: visual

@@ -1,0 +1,107 @@
+---
+title: "content_backup"
+author: "maxlorsignol"
+format: html
+editor: visual
+---
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+---
+title: "Content & Deliverables"
+format: html
+editor: visual
+---
+
+# Project 1 - Capstone Deliverables
+
+This project focuses on identifying and designating Other Effective Area-Based Conservation Measures (OECMs) within the Átl’ḵa7tsem/Howe Sound Biosphere Region. Using geospatial data from BC Parcel Data, CPCAD, and ecological sensitivity datasets, the study aims to assess parcels of land for their potential to support biodiversity conservation while meeting the criteria for OECM designation. The methodology involves creating a "mesh sensitivity layer" that integrates critical habitat data, forest age (\>200 years), and proximity to streams, combined with parcel attributes like ownership and zoning.
+
+Spatial analysis, guided by a decision support tool, evaluates parcels based on ecological sensitivity, proximity to existing conservation areas, and governance capacity. The project also examines differences across regional districts (Metro Vancouver, Sunshine Coast, Squamish Lillooet), aiming to prioritize parcels that are unprotected but ecologically significant. Expected results include a map of high-priority OECM candidates, helping to enhance biodiversity conservation while contributing to Canada’s broader conservation goals under the CBD’s Aichi Targets.
+
+## OECM Land Suitability Mesh Layer
+
+Each hexagon has a value based on the ecological sensitivity, critical habitat, forest age, proximity to streams and slope steepness. Darker values represent more sensitive areas and are used to select parcels of land from the BC Parcel Fabric layer in order to locate pieces of land that could be considered as OECM.
+
+```{r leaflet, include = FALSE}
+library(dplyr); library(leaflet); library(sf)
+
+# Load the spatial data
+oecm_data <- st_read("~/FCOR 599/ArcGIS/FCOR599_HoweSound_OECM/HoweSound_Weig_FeaturesToJSO.geojson")
+
+# Check CRS and reproject to WGS84 if necessary
+if (st_crs(oecm_data)$epsg != 4326) {
+  oecm_data <- st_transform(oecm_data, crs = 4326)
+}
+
+# Validate the geometry
+oecm_data <- st_make_valid(oecm_data)
+
+# Define a color palette based on a column (e.g., "CategoryColumn")
+pal <- colorNumeric(palette = "YlGnBu", domain = oecm_data$total_weig)
+
+# Create the map
+main_map <- leaflet(oecm_data) %>%
+  addProviderTiles("CartoDB.Positron") %>%
+  addPolygons(
+    color = ~pal(oecm_data$total_weig), # Color based on column
+    weight = 1,
+    fillOpacity = 0.7,
+    label = ~paste0("Category: ", oecm_data$total_weig) # Tooltip
+  ) %>%
+  setView(lng = -123.155, lat = 49.7016, zoom = 12) # Center on Squamish
+
+```
+
+```{r}
+main_map
+```
+
+## Code Snippets
+
+Sample code snippet. Notice that you can provide a toggle to switch between coding languages - this is referred to as a 'tabset' in quarto. It is good practice to try and convert your R code to python, and vice-versa to demonstrate coding proficiency. For example, let's showcase a function for calculating NDVI in R and Python.
+
+::: {.panel-tabset group="language"}
+## R
+
+``` (.r)
+calc_ndvi <- function(nir, red){ ndvi <- (nir-red)/(nir+red) return(ndvi) }
+```
+
+## Python
+
+``` (.python)
+def calc_ndvi(nir, red): 
+  ndvi = (nir.astype(float)-red.astype(float))/(nir.astype(float)+red.astype(float))
+  return(ndvi)
+```
+:::
+
+## External links
+
+We can also provide a frame linking to external websites. For example, here is a link to a Google Earth Engine application I developed. The full-screen GEE application is available [here](https://ee-melserramon.projects.earthengine.app/view/thermal-analysis-tool) in case you're interested.
+
+(To use the GEE tool, navigate to any city you'd like, hit apply filters, and click anywhere on the map to retrieve a time-series of Landsat surface temperature observations for that point. Areas where the maximum temp exceeded 35 degrees Celsius in your date-range are highlighted in red.)
+
+```{=html}
+<iframe width="900" height="700" src="https://ee-melserramon.projects.earthengine.app/view/thermal-analysis-tool" title="Webpage example"></iframe>
+```

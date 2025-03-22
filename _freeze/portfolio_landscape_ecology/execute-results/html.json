@@ -1,0 +1,17 @@
+{
+  "hash": "633962d033f654f5bb4437968faaa8f8",
+  "result": {
+    "engine": "knitr",
+    "markdown": "---\ntitle: \"Landscape Ecology\"\nformat: html\neditor: visual\n---\n\n\n\n\n## Marbled Murrelet Landscape Connectivity using GrainsofConnectivity\n\nThis page is currently a work in progress.\n\n\n\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n\n```\n  layer       crs units   class n_classes OK\n1     1 projected     m integer        17  ✔\n```\n\n\n:::\n:::\n\n::: {.cell}\n::: {.cell-output .cell-output-stdout}\n\n```\n# A tibble: 10 × 4\n      ID Class                       Color   Description                        \n   <dbl> <chr>                       <chr>   <chr>                              \n 1    11 Open Water                  #5475A8 Areas of open water, generally wit…\n 2    21 Developed, Open Space       #E8D1D1 Areas with a mixture of some const…\n 3    22 Developed, Low Intensity    #E29E8C Areas with a mixture of constructe…\n 4    23 Developed, Medium Intensity #ff0000 Areas with a mixture of constructe…\n 5    41 Deciduous Forest            #85C77E Areas dominated by trees generally…\n 6    42 Evergreen Forest            #38814E Areas dominated by trees generally…\n 7    43 Mixed Forest                #D4E7B0 Areas dominated by trees generally…\n 8    52 Shrub/Scrub                 #DCCA8F Areas dominated by shrubs; less th…\n 9    82 Cultivated Crops            #CA9146 Areas used for the production of a…\n10    90 Woody Wetlands              #C8E6F8 Areas where forest or shrubland ve…\n```\n\n\n:::\n:::\n\n::: {.cell}\n\n:::\n\n::: {.cell}\n::: {.cell-output-display}\n![](portfolio_landscape_ecology_files/figure-html/unnamed-chunk-5-1.png){width=672}\n:::\n:::\n",
+    "supporting": [
+      "portfolio_landscape_ecology_files"
+    ],
+    "filters": [
+      "rmarkdown/pagebreak.lua"
+    ],
+    "includes": {},
+    "engineDependencies": {},
+    "preserve": {},
+    "postProcess": true
+  }
+}
