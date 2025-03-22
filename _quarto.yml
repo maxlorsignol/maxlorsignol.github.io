@@ -1,6 +1,6 @@
 project:
   type: website
-  output-dir: c:\Users\lorsigno.stu\OneDrive - UBC\Desktop\Documents\GitHub\E-Portfolio
+  output-dir: C:\Users\lorsigno.stu\OneDrive - UBC\Desktop\Documents\GitHub\maxlorsignol.github.io
   
 resources:
   - "Geomatics Resume.pdf"
