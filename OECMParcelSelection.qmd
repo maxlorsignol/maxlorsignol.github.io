@@ -4,12 +4,23 @@ format: html
 editor: visual
 ---
 
-This project focuses on identifying and designating Other Effective Area-Based Conservation Measures (OECM) within the Átl’ḵa7tsem/Howe Sound Biosphere Region. Using data from a variety of sources, the study aims to assess parcels of land for their potential to support biodiversity conservation while meeting the criteria for OECM designation. The methodology involves creating a weighted suitability model that integrates critical habitat data, forest age, slope, streams buffer, parks buffer, wetlands and watersheds to make an initial parcel selection from the BC Parcel Fabric. Initial parcels are then further filtered by parcel attributes like ownership, class and zoning.
+::: {.callout-note collapse="false"}
+## Introduction
+This project focuses on identifying and designating Other Effective Area-Based Conservation Measures (OECM) within the Átl'ḵa7tsem/Howe Sound Biosphere Region. Using data from a variety of sources, the study aims to assess parcels of land for their potential to support biodiversity conservation while meeting the criteria for OECM designation. The methodology involves creating a weighted suitability model that integrates critical habitat data, forest age, slope, streams buffer, parks buffer, wetlands and watersheds to make an initial parcel selection from the BC Parcel Fabric. Initial parcels are then further filtered by parcel attributes like ownership, class and zoning.
+:::
 
+::: {.callout-note collapse="false"}
+## Weighted Suitability Model
 In the Weighted Layer, each hexagon has a value based on the a weighted suitability model. Darker values represent more sensitive areas and lighter values are less sensitive.
+:::
 
+::: {.callout-note collapse="false"}
+## Parcel Selection Methodology
 Using the suitability mesh layer in conjunction with the BC Fabric Parcel layer, I can select parcels that intersect with areas of the mesh based on a specified threshold. These parcels are then categorized based on their zoning, OCP and municipality. The resulting parcels can be seen below.
+:::
 
+::: {.callout-note collapse="false"}
+## Interactive Map
 ```{r leaflet, echo=FALSE, message=FALSE, warning=FALSE}
 
 library(dplyr)
@@ -91,7 +102,11 @@ get_owner_types <- function() {
 # Improved function to load raster with complete transparency for masked areas
 load_raster <- function() {
   tryCatch({
-    weighted_raster <- raster("~/GitHub/E-Portfolio/data/hs_weighted_raster.tif")
+    # Try to find the raster file in the OECMParcelSelection_files directory first
+    raster_path <- "/Users/max/Desktop/GitHub/maxlorsignol.github.io/data/hs_weighted_raster.tif"
+    
+    cat("Attempting to load raster from:", raster_path, "\n")
+    weighted_raster <- raster(raster_path)
     weighted_raster <- aggregate(weighted_raster, fact = 3)
     weighted_raster[weighted_raster == 999] <- NA
     cat("Raster loaded successfully\n")
@@ -106,11 +121,16 @@ load_raster <- function() {
 # DATASET DEFINITIONS
 #------------------------------------------------------------------------------
 
+# Create a base directory variable that can be easily changed
+base_dir <- "/Users/max/Desktop/GitHub/maxlorsignol.github.io/data"
+
+cat("Using base directory:", base_dir, "\n")
+
 # Define all datasets to load with their configurations
 datasets <- list(
   # Base parcel layer
   bc_parcel = list(
-    path = "C:/Users/lorsigno.stu/Documents/GitHub/E-Portfolio/data/HoweSound_Parcel_all.shp", 
+    path = file.path(base_dir, "HoweSound_Parcel_all.shp"), 
     simplify = TRUE,
     keep_ratio = 0.05,
     color_type = "fixed",
@@ -125,7 +145,7 @@ datasets <- list(
   
   # Consolidated OECM parcels
   all_oecm_parcels = list(
-    path = "C:/Users/lorsigno.stu/Documents/GitHub/E-Portfolio/data/selected_parcels_all_RD_for_github.shp",
+    path = file.path(base_dir, "HoweSound_Parcels_selected.shp"),
     simplify = TRUE,
     keep_ratio = 0.1,
     color_type = "owner",
@@ -135,23 +155,8 @@ datasets <- list(
     label_field = "OWNER_TYPE",
     label_prefix = "Owner: ",
     is_oecm_candidate = TRUE
-  ),
-  
-  # Currently protected areas (CPCAD layer)
-  protected_areas = list(
-    path = "C:/Users/lorsigno.stu/Documents/GitHub/E-Portfolio/data/cpcad_currently_protected_hs.shp",
-    simplify = TRUE,
-    keep_ratio = 0.1,
-    color_type = "fixed",
-    color = "#00FF00",
-    weight = 1,
-    fillOpacity = 0.2,
-    group = "Protected Areas",
-    label_field = "NAME_E",
-    label_prefix = "Protected Area: ",
-    is_oecm_candidate = FALSE,
-    default_crs = 3005  # Set the default CRS for the CPCAD layer (adjust if needed)
   )
+
 )
 
 #------------------------------------------------------------------------------
@@ -164,28 +169,17 @@ spatial_data <- list()
 # Load base parcel layer
 tryCatch({
   name <- "bc_parcel"
-  spatial_data[[name]] <- process_spatial_data(
-    datasets[[name]]$path, 
-    datasets[[name]]$simplify,
-    datasets[[name]]$keep_ratio,
-    max_points = 7500
-  )
-  cat("Loaded:", name, "\n")
-}, error = function(e) {
-  cat("Error loading", name, ":", e$message, "\n")
-})
-
-# Load protected areas layer with the default CRS if missing
-tryCatch({
-  name <- "protected_areas"
-  spatial_data[[name]] <- process_spatial_data(
-    datasets[[name]]$path, 
-    datasets[[name]]$simplify,
-    datasets[[name]]$keep_ratio,
-    max_points = 7500,
-    default_crs = datasets[[name]]$default_crs
-  )
-  cat("Loaded:", name, "\n")
+  if (file.exists(datasets[[name]]$path)) {
+    spatial_data[[name]] <- process_spatial_data(
+      datasets[[name]]$path, 
+      datasets[[name]]$simplify,
+      datasets[[name]]$keep_ratio,
+      max_points = 7500
+    )
+    cat("Loaded:", name, "\n")
+  } else {
+    cat("Warning: File not found:", datasets[[name]]$path, "\n")
+  }
 }, error = function(e) {
   cat("Error loading", name, ":", e$message, "\n")
 })
@@ -240,48 +234,6 @@ if (!is.null(spatial_data[["bc_parcel"]])) {
       ),
       highlightOptions = highlightOptions(
         weight = 2,
-        bringToFront = TRUE
-      )
-    )
-  overlay_groups <- c(overlay_groups, dataset_config$group)
-}
-
-#------------------------------------------------------------------------------
-# ADD PROTECTED AREAS LAYER
-#------------------------------------------------------------------------------
-
-if (!is.null(spatial_data[["protected_areas"]])) {
-  dataset_config <- datasets[["protected_areas"]]
-  label_field <- dataset_config$label_field
-  if (!label_field %in% names(spatial_data[["protected_areas"]])) {
-    char_fields <- names(spatial_data[["protected_areas"]])[
-      sapply(spatial_data[["protected_areas"]], is.character)
-    ]
-    if (length(char_fields) > 0) {
-      label_field <- char_fields[1]
-    } else {
-      label_field <- names(spatial_data[["protected_areas"]])[1]
-    }
-  }
-  main_map <- main_map %>%
-    addPolygons(
-      data = spatial_data[["protected_areas"]],
-      color = dataset_config$color,
-      weight = dataset_config$weight,
-      fillOpacity = dataset_config$fillOpacity,
-      fillColor = dataset_config$color,
-      group = dataset_config$group,
-      label = ~paste0(dataset_config$label_prefix, get(label_field)),
-      smoothFactor = 1.0,
-      noClip = TRUE,
-      options = pathOptions(
-        clickable = TRUE,
-        maxZoom = 14,
-        renderer = JS("L.canvas()")
-      ),
-      highlightOptions = highlightOptions(
-        weight = 2,
-        color = "#32CD32",
         bringToFront = TRUE
       )
     )
@@ -385,3 +337,4 @@ main_map
 
 
 ```
+:::
