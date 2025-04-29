@@ -18,14 +18,13 @@ The [@dalponte2016] method incorporates a marker-controlled watershed segmentati
 #| code-summary: "Show/Hide Code"
 
 library(lidR)
-library(terra)
 library(tidyverse)
 library(rgl)
 library(htmlwidgets)
 
 # set working directory
-setwd("~/GEM 521/Lab 5/Data")
-wd <- "~/GEM 521/Lab 5/Data"   # create a variable string working directory
+setwd("~/Desktop/GitHub/maxlorsignol.github.io/data")
+wd <- "~/Desktop/GitHub/maxlorsignol.github.io/data"   # create a variable string working directory
 ```
 
 ## Visualize
@@ -41,7 +40,7 @@ Below is a interactive visualization of one of the extracted plots from Malcom K
 #| code-summary: "Show/Hide Code"
 
 # Read in one of the plots
-plot_1 <- readLAS("~/GEM 521/Lab 5/Data/Plots/Plot_1.las")
+plot_1 <- readLAS("~/Desktop/GitHub/maxlorsignol.github.io/data/Plot_1.las")
 
 # Open a 3D rendering window for Li et al.2012
 open3d()

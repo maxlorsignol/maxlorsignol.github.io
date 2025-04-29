@@ -6,21 +6,25 @@ editor: visual
 
 ::: {.callout-note collapse="false"}
 ## Introduction
+
 This project focuses on identifying and designating Other Effective Area-Based Conservation Measures (OECM) within the Átl'ḵa7tsem/Howe Sound Biosphere Region. Using data from a variety of sources, the study aims to assess parcels of land for their potential to support biodiversity conservation while meeting the criteria for OECM designation. The methodology involves creating a weighted suitability model that integrates critical habitat data, forest age, slope, streams buffer, parks buffer, wetlands and watersheds to make an initial parcel selection from the BC Parcel Fabric. Initial parcels are then further filtered by parcel attributes like ownership, class and zoning.
 :::
 
 ::: {.callout-note collapse="false"}
 ## Weighted Suitability Model
+
 In the Weighted Layer, each hexagon has a value based on the a weighted suitability model. Darker values represent more sensitive areas and lighter values are less sensitive.
 :::
 
 ::: {.callout-note collapse="false"}
 ## Parcel Selection Methodology
+
 Using the suitability mesh layer in conjunction with the BC Fabric Parcel layer, I can select parcels that intersect with areas of the mesh based on a specified threshold. These parcels are then categorized based on their zoning, OCP and municipality. The resulting parcels can be seen below.
 :::
 
 ::: {.callout-note collapse="false"}
 ## Interactive Map
+
 ```{r leaflet, echo=FALSE, message=FALSE, warning=FALSE}
 
 library(dplyr)
