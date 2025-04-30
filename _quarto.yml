@@ -16,6 +16,8 @@ website:
         menu:
           - href: OECMParcelSelection.qmd
             text: OECM Parcel Selection
+          - href: whalesanctuary.qmd
+            text: Whale Sanctuary Extension Proposal
       - text: Remote Sensing
         menu:
           - href: classification.qmd
