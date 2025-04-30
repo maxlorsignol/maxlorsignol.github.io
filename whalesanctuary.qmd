@@ -13,7 +13,7 @@ This project focuses on proposing an extension to the existing whale sanctuary n
 ::: {.callout-note collapse="false"}
 ## Skills Used
 
-- Spatial data handling and transformation in R
+- Spatial data handling and transformation
 - Multi-criteria suitability analysis
 - Interactive map creation with leaflet
 - Spatial overlay analysis for conservation planning
