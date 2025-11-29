@@ -1,6 +1,9 @@
 ---
 title: "Max Lorsignol"
 image: images/headshot_1.png
+format:
+  html:
+    css: styles.css
 about:
   template: trestles
   image-width: 20em
@@ -18,8 +21,6 @@ about:
 
 Hi, my name is Max Lorsignol.
 
-I am a recent graduate with a Master's degree in Geomatics for Environmental Management from the University of British Columbia. My expertise lies in the collection, analysis, and visualization of spatial data — a passion sparked by my father's mountaineering maps. When not developing digital cartography solutions, I can be found exploring the Pacific Northwest's mountains.
+I am a recent graduate with a Master's degree in Geomatics for Environmental Management from the University of British Columbia. Sparked by my father's mountaineering maps in my younger years, my passion lies in the collection, analysis, and visualization of spatial data. When not developing digital cartographic solutions, I can be found outdoors, exploring the Pacific Northwest's mountains.
 
 I aim to apply my technical skills and field experience to address critical challenges in environmental conservation, climate change mitigation, and sustainable land management, working toward innovative solutions for our changing world.
-
-![GIF of a forest plot with Individual Trees Segmented using li2012, colorized by TreeID](images/plot_1_seg_treeID_750x750_white_2degree_10fps.gif)

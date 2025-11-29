@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Max Lorsignol",
     "section": "",
-    "text": "Hi, my name is Max Lorsignol.\nI am a recent graduate with a Master’s degree in Geomatics for Environmental Management from the University of British Columbia. My expertise lies in the collection, analysis, and visualization of spatial data — a passion sparked by my father’s mountaineering maps. When not developing digital cartography solutions, I can be found exploring the Pacific Northwest’s mountains.\nI aim to apply my technical skills and field experience to address critical challenges in environmental conservation, climate change mitigation, and sustainable land management, working toward innovative solutions for our changing world.\n\n\n\nGIF of a forest plot with Individual Trees Segmented using li2012, colorized by TreeID"
+    "text": "Hi, my name is Max Lorsignol.\nI am a recent graduate with a Master’s degree in Geomatics for Environmental Management from the University of British Columbia. Sparked by my father’s mountaineering maps in my younger years, my passion lies in the collection, analysis, and visualization of spatial data. When not developing digital cartographic solutions, I can be found outdoors, exploring the Pacific Northwest’s mountains.\nI aim to apply my technical skills and field experience to address critical challenges in environmental conservation, climate change mitigation, and sustainable land management, working toward innovative solutions for our changing world."
   },
   {
     "objectID": "resume.html",
@@ -585,7 +585,7 @@
     "href": "cv2.html#skills-and-certificates",
     "title": "CV",
     "section": "Skills and Certificates",
-    "text": "Skills and Certificates\n\nGIS and Spatial Data Management\n\nArcGIS Pro, QGIS, ENVI, FME\nArcGIS Model Builder and Experience Builder\nPostgreSQL for Spatial Databases\nRemote Sensing & Cartography\n\n\n\nTechnical & Software Procifiency\n\nPython, R, SQL\nAdobe Suite (Illustrator, Photoshop), SketchUp, Procreate\nMicrosoft Office (Excel, Word, PowerPoint)\n\n\n\nCertifications & Licenses\n\nClass 5 Drivers License\nWorkSafeBC\nWHMIS Certified\nFirst Aid (WFA 40 Hour)\nBoating License\nDrone License"
+    "text": "Skills and Certificates\n\nGIS and Spatial Data Management\n\nArcGIS Pro, QGIS, Global Mapper, ENVI, FME,\nArcGIS Model Builder and Experience Builder\nPostgreSQL, pgAdmin\nCartography & Map making\n\n\n\nTechnical & Software Procifiency\n\nPython, R, SQL\nVEXCEL UltraMap (Imagery), Reigl RiProcess (LiDAR), Applanix POSPac (GPS)\nAdobe Suite (Illustrator, Photoshop), SketchUp, Procreate\nMicrosoft Office (Excel, Word, PowerPoint)\n\n\n\nCertifications & Licenses\n\nClass 5 Drivers License\nWorkSafeBC\nWHMIS Certified\nFirst Aid (WFA 40 Hour)\nBoating License\nDrone License"
   },
   {
     "objectID": "cv2.html#education",
@@ -691,5 +691,19 @@
     "title": "Kauai Whale Sanctuary Extension Proposal",
     "section": "",
     "text": "Introduction\n\n\n\n\n\nThis project focuses on proposing an extension to the existing whale sanctuary near the island of Kauai, Hawaii. Based on recent humpback whale sightings data and suitability analysis, the study identifies optimal areas for extending protection zones to better conserve cetacean populations, particularly humpback whales. The analysis builds upon previous research that identified key biologically important areas (BIAs) for humpback whales in Hawaiian waters.\n\n\n\n\n\n\n\n\n\nSkills Used\n\n\n\n\n\n\nSpatial data handling and transformation\nMulti-criteria suitability analysis\nInteractive map creation with leaflet\nSpatial overlay analysis for conservation planning\nProtected area designation and zoning\n\n\n\n\n\n\n\n\n\n\nApproach\n\n\n\n\n\nThe methodology involved analyzing existing whale sanctuary boundaries and recent sightings data to identify high-priority areas for sanctuary expansion. Using a weighted suitability model similar to the one in the lab exercise, multiple factors were integrated:\n\nFrequency of humpback whale sightings\nDistance from existing sanctuary boundaries\nHuman activity intensity (vessel traffic, fishing, tourism)\nProximity to critical breeding habitat\n\nThe proposed extension prioritizes areas with high sighting density that fall outside current protection zones, while considering implementation feasibility.\n\n\n\n\n\n\n\n\n\nResults\n\n\n\n\n\nThe analysis identified several suitable areas for sanctuary extension, with the most promising location on the northwestern coast of Kauai. The proposed extension would increase the total protected area by approximately 40%, covering key habitats where sightings density is highest. The interactive map below shows the current sanctuary boundaries (blue), the proposed extension (green), and humpback whale sighting clusters (red circles, sized by number of sightings).\n\n\n\n\n\n\n\n\n\nInteractive Map\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nDiscussion and Recommendations\n\n\n\n\n\nThe proposed extension significantly increases protection for humpback whales in the northwestern waters of Kauai. Based on the analysis, several recommendations emerge:\n\nImplement the proposed extension as a priority zone with heightened protection measures\nEstablish a monitoring program within the newly protected areas to track whale populations\nCreate a buffer zone with graduated restrictions to minimize edge effects\nEngage local stakeholders including fishing communities and tourism operators in collaborative management\n\nFuture analysis should incorporate additional data on vessel traffic patterns, underwater noise mapping, and seasonal variations in humpback whale distributions to refine protection strategies."
+  },
+  {
+    "objectID": "data/source.html",
+    "href": "data/source.html",
+    "title": "Max Lorsignol",
+    "section": "",
+    "text": "&lt;!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’&gt;     dataset\n\n\n                PROJCRS[“NAD83 / Alberta 10-TM (Forest)”,BASEGEOGCRS[“NAD83”,DATUM[“North American Datum 1983”,ELLIPSOID[“GRS 1980”,6378137,298.257222101,LENGTHUNIT[“metre”,1]]],PRIMEM[“Greenwich”,0,ANGLEUNIT[“degree”,0.0174532925199433]],ID[“EPSG”,4269]],CONVERSION[“Alberta 10-degree TM (Forest)”,METHOD[“Transverse Mercator”,ID[“EPSG”,9807]],PARAMETER[“Latitude of natural origin”,0,ANGLEUNIT[“degree”,0.0174532925199433],ID[“EPSG”,8801]],PARAMETER[“Longitude of natural origin”,-115,ANGLEUNIT[“degree”,0.0174532925199433],ID[“EPSG”,8802]],PARAMETER[“Scale factor at natural origin”,0.9992,SCALEUNIT[“unity”,1],ID[“EPSG”,8805]],PARAMETER[“False easting”,500000,LENGTHUNIT[“metre”,1],ID[“EPSG”,8806]],PARAMETER[“False northing”,0,LENGTHUNIT[“metre”,1],ID[“EPSG”,8807]]],CS[Cartesian,2],AXIS[“(E)”,east,ORDER[1],LENGTHUNIT[“metre”,1]],AXIS[“(N)”,north,ORDER[2],LENGTHUNIT[“metre”,1]],USAGE[SCOPE[“Province-wide spatial data management.”],AREA[“Canada - Alberta.”],BBOX[48.99,-120,60,-109.98]],ID[“EPSG”,3400]] +proj=tmerc +lat_0=0 +lon_0=-115 +k=0.9992 +x_0=500000 +y_0=0 +datum=NAD83 +units=m +no_defs 1358 3400 EPSG:3400 NAD83 / Alberta 10-TM (Forest) tmerc EPSG:7019 false"
+  },
+  {
+    "objectID": "data/target.html",
+    "href": "data/target.html",
+    "title": "Max Lorsignol",
+    "section": "",
+    "text": "&lt;!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’&gt;     \n\n\n                  0 0     false"
   }
 ]

@@ -13,11 +13,11 @@ This project focuses on proposing an extension to the existing whale sanctuary n
 ::: {.callout-note collapse="false"}
 ## Skills Used
 
-- Spatial data handling and transformation
-- Multi-criteria suitability analysis
-- Interactive map creation with leaflet
-- Spatial overlay analysis for conservation planning
-- Protected area designation and zoning
+-   Spatial data handling and transformation
+-   Multi-criteria suitability analysis
+-   Interactive map creation with leaflet
+-   Spatial overlay analysis for conservation planning
+-   Protected area designation and zoning
 :::
 
 ::: {.callout-note collapse="false"}
@@ -25,10 +25,10 @@ This project focuses on proposing an extension to the existing whale sanctuary n
 
 The methodology involved analyzing existing whale sanctuary boundaries and recent sightings data to identify high-priority areas for sanctuary expansion. Using a weighted suitability model similar to the one in the lab exercise, multiple factors were integrated:
 
-1. Frequency of humpback whale sightings
-2. Distance from existing sanctuary boundaries
-3. Human activity intensity (vessel traffic, fishing, tourism)
-4. Proximity to critical breeding habitat
+1.  Frequency of humpback whale sightings
+2.  Distance from existing sanctuary boundaries
+3.  Human activity intensity (vessel traffic, fishing, tourism)
+4.  Proximity to critical breeding habitat
 
 The proposed extension prioritizes areas with high sighting density that fall outside current protection zones, while considering implementation feasibility.
 :::
@@ -203,10 +203,10 @@ whale_sanctuary_map
 
 The proposed extension significantly increases protection for humpback whales in the northwestern waters of Kauai. Based on the analysis, several recommendations emerge:
 
-1. Implement the proposed extension as a priority zone with heightened protection measures
-2. Establish a monitoring program within the newly protected areas to track whale populations
-3. Create a buffer zone with graduated restrictions to minimize edge effects
-4. Engage local stakeholders including fishing communities and tourism operators in collaborative management
+1.  Implement the proposed extension as a priority zone with heightened protection measures
+2.  Establish a monitoring program within the newly protected areas to track whale populations
+3.  Create a buffer zone with graduated restrictions to minimize edge effects
+4.  Engage local stakeholders including fishing communities and tourism operators in collaborative management
 
 Future analysis should incorporate additional data on vessel traffic patterns, underwater noise mapping, and seasonal variations in humpback whale distributions to refine protection strategies.
 :::

@@ -1,0 +1,18 @@
+/* Full-screen background image for the whole page */
+body {
+  background-image: url("images/background_image_howesound.jpg"); /* <-- change this */
+  background-size: cover;      /* scale to fill the screen */
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-attachment: fixed; /* keeps it static when scrolling */
+}
+
+/* Add a dark translucent overlay on top of the image */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;                 /* top:0, left:0, right:0, bottom:0 */
+  background: rgba(255, 255, 255, 0.5);  /* adjust opacity here */
+  z-index: -1;              /* stay behind all content */
+}
+

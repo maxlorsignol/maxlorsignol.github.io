@@ -10,8 +10,8 @@ website:
   search: false
   navbar:
     left:
-      - href: index.qmd
-        text: Home
+#      - href: index.qmd
+#        text: Home
       - text: GIS
         menu:
           - href: OECMParcelSelection.qmd

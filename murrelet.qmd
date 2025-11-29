@@ -5,6 +5,7 @@ editor: visual
 code-fold: true
 bibliography: references.bib
 ---
+
 ::: {.callout-note collapse="false"}
 ## Introduction
 
@@ -27,8 +28,10 @@ The first step in this analysis is to rasterize the Sensitive Ecosystem Mapping 
 
 ::: {.callout-note collapse="false"}
 ## Approach
+
 After the rasterization and landscape reclassification of the SEM, OGMA and Marbled Murrelet habitat, a series of ecological analyses will be performed. Specifically, a network analysis utilizing the MPG to create a least-cost path model for the Marbled Murrelet, and with varying threshold values, a grains of connectivity (GoC) analysis. A variety of landscape metrics using the landscapemetrics package in R will be applied to the reclassified ecosystems including PLAND (percentage of landscape), NP (number of patches), CAI_MN (mean of core area index), LPI (largest patch index) and other metrics useful to determine the fragmentation and ecosystem edges.
 :::
+
 ```{r read, warning=FALSE, message=FALSE, echo=FALSE}
 #| code-fold: true
 #| code-summary: "Show/Hide Code"

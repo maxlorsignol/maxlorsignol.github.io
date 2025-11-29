@@ -10,15 +10,16 @@ editor: visual
 
 #### GIS and Spatial Data Management
 
--   ArcGIS Pro, QGIS, ENVI, FME
+-   ArcGIS Pro, QGIS, Global Mapper, ENVI, FME,
 -   ArcGIS Model Builder and Experience Builder
--   PostgreSQL for Spatial Databases
--   Remote Sensing & Cartography
+-   PostgreSQL, pgAdmin
+-   Cartography & Map making
 
 #### Technical & Software Procifiency
 
 -   Python, R, SQL
--   Adobe Suite (Illustrator, Photoshop), SketchUp, Procreate
+-   VEXCEL UltraMap (Imagery), Reigl RiProcess (LiDAR), Applanix POSPac (GPS)
+-   Adobe Suite (Illustrator, Photoshop), Blender
 -   Microsoft Office (Excel, Word, PowerPoint)
 
 #### Certifications & Licenses
