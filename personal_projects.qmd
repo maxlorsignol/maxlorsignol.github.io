@@ -1,0 +1,18 @@
+---
+title: ""
+page-layout: full
+
+listing:
+  contents:
+    - vanlife.qmd
+    - floatingstaircase.qmd
+    - photo_stage.qmd
+    
+  type: grid
+  sort: "title"
+  categories: false
+---
+
+# Personal Projects
+
+This section is a home for the things I build away from the computer – mostly woodworking, small-space design, and practical projects that get used every day.

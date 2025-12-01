@@ -1,26 +1,28 @@
 ---
-title: "Max Lorsignol"
-image: images/headshot_1.png
+title: ""
 format:
   html:
     css: styles.css
-about:
-  template: trestles
-  image-width: 20em
-  links: 
-    - icon: linkedin
-      text: LinkedIn
-      href: https://www.linkedin.com/in/max-lorsignol-bb854595/
-    - icon: github
-      text: GitHub
-      href: https://github.com/maxlorsignol
-    - icon: envelope-at
-      text: Email
-      href: mailto:maxlorsignol@gmail.com
 ---
 
+![](images/headshot_1.png){.hero-headshot fig-align="center"}
+
+## About Me {.cv-header}
+
+::: {.text-align}
 Hi, my name is Max Lorsignol.
 
-I am a recent graduate with a Master's degree in Geomatics for Environmental Management from the University of British Columbia. Sparked by my father's mountaineering maps in my younger years, my passion lies in the collection, analysis, and visualization of spatial data. When not developing digital cartographic solutions, I can be found outdoors, exploring the Pacific Northwest's mountains.
+I am a recent graduate with a Master's degree in Geomatics for Environmental Management from the University of British Columbia. Inspired by my father's mountaineering maps in my younger years and my love for the outdoors, my passion lies in the collection, analysis, and visualization of earths many surfaces and spatial information. I aim to apply my technical skills and field experience to address critical challenges in environmental conservation, climate change mitigation, and sustainable land management, working toward innovative solutions for our changing world. When not developing digital cartographic solutions, I can be found outdoors, exploring the Pacific Northwest's mountains.
+:::
 
-I aim to apply my technical skills and field experience to address critical challenges in environmental conservation, climate change mitigation, and sustainable land management, working toward innovative solutions for our changing world.
+## CV {.cv-header}
+
+![](LGEO_resume_no_headshot.pdf){.pdf-frame width="100%" height="1050px"}
+
+[Download CV (PDF)](LGEO_resume_no_headshot.pdf){.btn target="_blank"}
+
+## Contact {.contact-header}
+
+::: hero-links
+[LinkedIn](https://www.linkedin.com/in/max-lorsignol-bb854595/){.btn .btn-sm target="_blank"} [GitHub](https://github.com/maxlorsignol){.btn .btn-sm target="_blank"} [Email](mailto:maxlorsignol@gmail.com){.btn .btn-sm}
+:::

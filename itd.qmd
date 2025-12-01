@@ -2,6 +2,7 @@
 title: "Individual Tree Detection Methods"
 format: html
 editor: visual
+image: "images/itd_front_image.png"
 bibliography: references.bib
 ---
 
@@ -29,9 +30,9 @@ wd <- "~/Desktop/GitHub/maxlorsignol.github.io/data"   # create a variable strin
 
 ## Visualize
 
-Below is a interactive visualization of one of the extracted plots from Malcom Knapp Research Forest. We will be detecting each one of these trees using two different tree detection methods.
+Below is a interactive visualization of one of the extracted plots of a forest. We will be detecting each one of these trees using two different tree detection methods.
 
-```{r 3d visual, warning=FALSE, message=FALSE, echo=FALSE, results='hide'}
+```{r 3d visual, warning=FALSE, message=FALSE, echo=FALSE, results='hide', eval=FALSE}
 #| execute: true
 #| eval: true
 #| warning: false
@@ -57,7 +58,7 @@ saveWidget(rglwidget_obj_plot_1, file = "interactive_plot_1.html", selfcontained
 
 ## ITD using Li (2012)
 
-```{r li2012 visual, warning=FALSE, message=FALSE, echo=FALSE, results='hide'}
+```{r li2012 visual, warning=FALSE, message=FALSE, echo=FALSE, results='hide', eval=FALSE}
 #| execute: true
 #| eval: true
 #| warning: false
@@ -83,7 +84,7 @@ saveWidget(rglwidget_plot1_li, file = "interactive_plot1_li.html", selfcontained
 
 ## ITD using Dalponte Coomes (2016)
 
-```{r dalp2016 visual, warning=FALSE, message=FALSE, echo=FALSE, results='hide'}
+```{r dalp2016 visual, warning=FALSE, message=FALSE, echo=FALSE, results='hide', eval=FALSE}
 #| execute: true
 #| eval: true
 #| warning: false
@@ -113,3 +114,11 @@ saveWidget(rglwidget_plot1_dalp, file = "interactive_plot1_dalp.html", selfconta
 
 </iframe>
 :::
+
+## Comparison and Interpretation
+
+Visually comparing the outputs of the Li et al. (2012) and Dalponte & Coomes (2016) methods shows how algorithm design influences crown delineation:
+
+The Li (2012) method may detect more smaller crowns and emphasize point-cloud structure. The Dalponte (2016) method tends to produce smoother, CHM-driven crown shapes and is sensitive to CHM resolution and treetop detection parameters.
+
+These differences have downstream implications for metrics such as tree density, crown area, and estimates of forest structure, and should be considered when choosing an ITD algorithm for a particular forest type or management application.

@@ -1,0 +1,46 @@
+[
+  {
+    "listing": "/projects.html",
+    "items": [
+      "/classification.html",
+      "/itd.html",
+      "/whalesanctuary.html",
+      "/murrelet.html",
+      "/OECMParcelSelection.html"
+    ]
+  },
+  {
+    "listing": "/all_projects.html",
+    "items": [
+      "/classification.html",
+      "/itd.html",
+      "/whalesanctuary.html",
+      "/murrelet.html",
+      "/OECMParcelSelection.html"
+    ]
+  },
+  {
+    "listing": "/gis.html",
+    "items": [
+      "/whalesanctuary.html",
+      "/murrelet.html",
+      "/OECMParcelSelection.html"
+    ]
+  },
+  {
+    "listing": "/remote_sensing.html",
+    "items": [
+      "/classification.html",
+      "/itd.html",
+      "/murrelet.html"
+    ]
+  },
+  {
+    "listing": "/personal_projects.html",
+    "items": [
+      "/floatingstaircase.html",
+      "/vanlife.html",
+      "/photo_stage.html"
+    ]
+  }
+]

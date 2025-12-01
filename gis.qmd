@@ -1,0 +1,19 @@
+---
+title: ""
+page-layout: full
+
+listing:
+  contents:
+    - OECMParcelSelection.qmd
+    - whalesanctuary.qmd
+    - murrelet.qmd
+  type: grid
+
+  categories: FALSE
+---
+
+# GIS Projects
+
+These projects focus on **spatial analysis, suitability modelling, and landscape-scale decision support**, often tying into conservation planning and habitat connectivity.
+
+The cards below link to individual project pages with more detail on methods, datasets, and outcomes.

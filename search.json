@@ -4,7 +4,7 @@
     "href": "index.html",
     "title": "Max Lorsignol",
     "section": "",
-    "text": "Hi, my name is Max Lorsignol.\nI am a recent graduate with a Master’s degree in Geomatics for Environmental Management from the University of British Columbia. Sparked by my father’s mountaineering maps in my younger years, my passion lies in the collection, analysis, and visualization of spatial data. When not developing digital cartographic solutions, I can be found outdoors, exploring the Pacific Northwest’s mountains.\nI aim to apply my technical skills and field experience to address critical challenges in environmental conservation, climate change mitigation, and sustainable land management, working toward innovative solutions for our changing world."
+    "text": "Hi, my name is Max Lorsignol.\nI am a recent graduate with a Master’s degree in Geomatics for Environmental Management from the University of British Columbia. Inspired by my father’s mountaineering maps in my younger years and my love for the outdoors, my passion lies in the collection, analysis, and visualization of earths many surfaces and spatial information. I aim to apply my technical skills and field experience to address critical challenges in environmental conservation, climate change mitigation, and sustainable land management, working toward innovative solutions for our changing world. When not developing digital cartographic solutions, I can be found outdoors, exploring the Pacific Northwest’s mountains."
   },
   {
     "objectID": "resume.html",
@@ -550,7 +550,7 @@
     "href": "itd.html#visualize",
     "title": "Individual Tree Detection Methods",
     "section": "Visualize",
-    "text": "Visualize\nBelow is a interactive visualization of one of the extracted plots from Malcom Knapp Research Forest. We will be detecting each one of these trees using two different tree detection methods."
+    "text": "Visualize\nBelow is a interactive visualization of one of the extracted plots of a forest. We will be detecting each one of these trees using two different tree detection methods."
   },
   {
     "objectID": "itd.html#itd-using-li-2012",
@@ -585,7 +585,7 @@
     "href": "cv2.html#skills-and-certificates",
     "title": "CV",
     "section": "Skills and Certificates",
-    "text": "Skills and Certificates\n\nGIS and Spatial Data Management\n\nArcGIS Pro, QGIS, Global Mapper, ENVI, FME,\nArcGIS Model Builder and Experience Builder\nPostgreSQL, pgAdmin\nCartography & Map making\n\n\n\nTechnical & Software Procifiency\n\nPython, R, SQL\nVEXCEL UltraMap (Imagery), Reigl RiProcess (LiDAR), Applanix POSPac (GPS)\nAdobe Suite (Illustrator, Photoshop), SketchUp, Procreate\nMicrosoft Office (Excel, Word, PowerPoint)\n\n\n\nCertifications & Licenses\n\nClass 5 Drivers License\nWorkSafeBC\nWHMIS Certified\nFirst Aid (WFA 40 Hour)\nBoating License\nDrone License"
+    "text": "Skills and Certificates\n\nGIS and Spatial Data Management\n\nArcGIS Pro, QGIS, Global Mapper, ENVI, FME,\nArcGIS Model Builder and Experience Builder\nPostgreSQL, pgAdmin\nCartography & Map making\n\n\n\nTechnical & Software Procifiency\n\nPython, R, SQL\nVEXCEL UltraMap (Imagery), Reigl RiProcess (LiDAR), Applanix POSPac (GPS)\nAdobe Suite (Illustrator, Photoshop), Blender\nMicrosoft Office (Excel, Word, PowerPoint)\n\n\n\nCertifications & Licenses\n\nClass 5 Drivers License\nWorkSafeBC\nWHMIS Certified\nFirst Aid (WFA 40 Hour)\nBoating License\nDrone License"
   },
   {
     "objectID": "cv2.html#education",
@@ -705,5 +705,89 @@
     "title": "Max Lorsignol",
     "section": "",
     "text": "&lt;!DOCTYPE qgis PUBLIC ‘http://mrcc.com/qgis.dtd’ ‘SYSTEM’&gt;     \n\n\n                  0 0     false"
+  },
+  {
+    "objectID": "index.html#cv-contact",
+    "href": "index.html#cv-contact",
+    "title": "Max Lorsignol",
+    "section": "CV & Contact",
+    "text": "CV & Contact\n\n\n\nDownload CV (PDF)\n\n\nContact\n\nEmail: maxlorsignol@gmail.com\n\nLinkedIn: linkedin.com/in/max-lorsignol\n\nGitHub: github.com/maxlorsignol"
+  },
+  {
+    "objectID": "index.html#cv",
+    "href": "index.html#cv",
+    "title": "Max Lorsignol",
+    "section": "CV",
+    "text": "CV\n\nDownload CV (PDF)"
+  },
+  {
+    "objectID": "index.html#contact",
+    "href": "index.html#contact",
+    "title": "Max Lorsignol",
+    "section": "Contact",
+    "text": "Contact\n\nLinkedIn GitHub Email"
+  },
+  {
+    "objectID": "index.html#about",
+    "href": "index.html#about",
+    "title": "Max Lorsignol",
+    "section": "About",
+    "text": "About\n\nHi, my name is Max Lorsignol.\nI am a recent graduate with a Master’s degree in Geomatics for Environmental Management from the University of British Columbia. Inspired by my father’s mountaineering maps in my younger years and my love for the outdoors, my passion lies in the collection, analysis, and visualization of earths many surfaces and spatial information. I aim to apply my technical skills and field experience to address critical challenges in environmental conservation, climate change mitigation, and sustainable land management, working toward innovative solutions for our changing world. When not developing digital cartographic solutions, I can be found outdoors, exploring the Pacific Northwest’s mountains."
+  },
+  {
+    "objectID": "index.html#about-me",
+    "href": "index.html#about-me",
+    "title": "Max Lorsignol",
+    "section": "About Me",
+    "text": "About Me\n\nHi, my name is Max Lorsignol.\nI am a recent graduate with a Master’s degree in Geomatics for Environmental Management from the University of British Columbia. Inspired by my father’s mountaineering maps in my younger years and my love for the outdoors, my passion lies in the collection, analysis, and visualization of earths many surfaces and spatial information. I aim to apply my technical skills and field experience to address critical challenges in environmental conservation, climate change mitigation, and sustainable land management, working toward innovative solutions for our changing world. When not developing digital cartographic solutions, I can be found outdoors, exploring the Pacific Northwest’s mountains."
+  },
+  {
+    "objectID": "projects.html",
+    "href": "projects.html",
+    "title": "All Projects",
+    "section": "",
+    "text": "Welcome to my project portfolio.\nBelow is a selection of GIS, remote-sensing, photogrammetry, and cartography work I’ve done in academic, professional, and personal contexts.\nEach card links to a dedicated project page with methods, data sources, and results.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIndividual Tree Detection Methods\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nKauai Whale Sanctuary Extension Proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMarbled Murrelet Habitat Connectivity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOECM Parcel Selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "all_projects.html",
+    "href": "all_projects.html",
+    "title": "All Projects",
+    "section": "",
+    "text": "Welcome to my project portfolio.\nBelow is a selection of GIS, remote-sensing, photogrammetry, and cartography work I’ve done in academic, professional, and personal contexts.\nEach card links to a dedicated project page with methods, data sources, and results.\n\n\n\n\n\n\n\n\n\n\n\n\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIndividual Tree Detection Methods\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nKauai Whale Sanctuary Extension Proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMarbled Murrelet Habitat Connectivity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOECM Parcel Selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "gis.html",
+    "href": "gis.html",
+    "title": "GIS Projects",
+    "section": "",
+    "text": "GIS Projects\nThese projects focus on spatial analysis, suitability modelling, and landscape-scale decision support, often tying into conservation planning and habitat connectivity.\nThe cards below link to individual project pages with more detail on methods, datasets, and outcomes.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nKauai Whale Sanctuary Extension Proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMarbled Murrelet Habitat Connectivity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOECM Parcel Selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "remote_sensing.html",
+    "href": "remote_sensing.html",
+    "title": "Remote Sensing Projects",
+    "section": "",
+    "text": "Remote Sensing Projects\nThese projects emphasize satellite and airborne data, including image classification, LiDAR-based analysis, and integration of spectral information into ecological questions.\nThe cards below link to remote sensing projects, many of which also connect back to GIS analyses and conservation applications.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIndividual Tree Detection Methods\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMarbled Murrelet Habitat Connectivity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "itd.html#comparison-and-interpretation",
+    "href": "itd.html#comparison-and-interpretation",
+    "title": "Individual Tree Detection Methods",
+    "section": "Comparison and Interpretation",
+    "text": "Comparison and Interpretation\nVisually comparing the outputs of the Li et al. (2012) and Dalponte & Coomes (2016) methods shows how algorithm design influences crown delineation:\nThe Li (2012) method may detect more smaller crowns and emphasize point-cloud structure. The Dalponte (2016) method tends to produce smoother, CHM-driven crown shapes and is sensitive to CHM resolution and treetop detection parameters.\nThese differences have downstream implications for metrics such as tree density, crown area, and estimates of forest structure, and should be considered when choosing an ITD algorithm for a particular forest type or management application."
+  },
+  {
+    "objectID": "personal_projects.html",
+    "href": "personal_projects.html",
+    "title": "Personal Projects",
+    "section": "",
+    "text": "Personal Projects\nThis section is a home for the things I build away from the computer – mostly woodworking, small-space design, and practical projects that get used every day.\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFloating Staircase\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOff Grid Camper Van Build\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPhotoshoot Stage\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
+  },
+  {
+    "objectID": "photo_stage.html",
+    "href": "photo_stage.html",
+    "title": "Photoshoot Stage",
+    "section": "",
+    "text": "This project involved designing and building a versatile indoor photoshoot stage for a small production space. I created a modular, durable platform that could work for portrait photography, product shoots, and small creative sets.\nThe build included:\n\nConstructing a raised wooden stage with a smooth, stable surface capable of supporting lighting, props, and multiple subjects.\n\n\n\n\nsingle frame model\n\n\n\n\n\noverall design idea\n\n\n\nCustom trim and edging to create a clean visual boundary between the stage and surrounding studio space.\n\n\n\n\nmodelled single frame with subfloor\n\n\n\n\n\nmodelled single frame with step nosing\n\n\n\nOptimizing lighting conditions, with the platform designed to bounce soft light and minimize unwanted shadows.\n\n \n \n \nThis was a full end-to-end build: design, materials sourcing, fabrication, assembly, and finishing. The final result is a bright, minimal, and highly functional stage that elevates the quality and flexibility of indoor studio shoots."
   }
 ]

@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Max Lorsignol</title>
+<title>All Projects – Max Lorsignol</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,6 +25,8 @@ ul.task-list li input[type="checkbox"] {
 
 <script src="site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/quarto-listing/list.min.js"></script>
+<script src="site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="site_libs/clipboard/clipboard.min.js"></script>
 <script src="site_libs/quarto-html/quarto.js"></script>
 <script src="site_libs/quarto-html/popper.min.js"></script>
@@ -50,7 +52,65 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
+<script>
 
+  window.document.addEventListener("DOMContentLoaded", function (_event) {
+    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    if (!listingTargetEl) {
+      // No listing discovered, do not attach.
+      return; 
+    }
+
+    const options = {
+      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      
+      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
+    };
+
+    window['quarto-listings'] = window['quarto-listings'] || {};
+    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  });
+
+  window.addEventListener('hashchange',() => {
+    if (window['quarto-listing-loaded']) {
+      window['quarto-listing-loaded']();
+    }
+  })
+  </script>
+
+  <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
+  <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
+
+<script type="text/javascript">
+const typesetMath = (el) => {
+  if (window.MathJax) {
+    // MathJax Typeset
+    window.MathJax.typeset([el]);
+  } else if (window.katex) {
+    // KaTeX Render
+    var mathElements = el.getElementsByClassName("math");
+    var macros = [];
+    for (var i = 0; i < mathElements.length; i++) {
+      var texText = mathElements[i].firstChild;
+      if (mathElements[i].tagName == "SPAN") {
+        window.katex.render(texText.data, mathElements[i], {
+          displayMode: mathElements[i].classList.contains('display'),
+          throwOnError: false,
+          macros: macros,
+          fleqn: false
+        });
+      }
+    }
+  }
+}
+window.Quarto = {
+  typesetMath
+};
+</script>
 
 <link rel="stylesheet" href="styles.css">
 </head>
@@ -79,10 +139,6 @@ ul.task-list li input[type="checkbox"] {
     <a class="nav-link" href="./remote_sensing.html"> 
 <span class="menu-text">Remote Sensing</span></a>
   </li>  
-  <li class="nav-item">
-    <a class="nav-link" href="./personal_projects.html"> 
-<span class="menu-text">Personal Projects</span></a>
-  </li>  
 </ul>
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
@@ -97,53 +153,154 @@ ul.task-list li input[type="checkbox"] {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
-    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        <nav id="TOC" role="doc-toc" class="toc-active">
-    <h2 id="toc-title">On this page</h2>
-   
-  <ul>
-  <li><a href="#about-me" id="toc-about-me" class="nav-link active" data-scroll-target="#about-me">About Me</a></li>
-  <li><a href="#cv" id="toc-cv" class="nav-link" data-scroll-target="#cv">CV</a></li>
-  <li><a href="#contact" id="toc-contact" class="nav-link" data-scroll-target="#contact">Contact</a></li>
-  </ul>
-</nav>
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar zindex-bottom">
+        
     </div>
 <!-- main -->
-<main class="content" id="quarto-document-content">
+<main class="content column-page" id="quarto-document-content">
 
-
-
-
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="images/headshot_1.png" class="hero-headshot img-fluid quarto-figure quarto-figure-center figure-img"></p>
-</figure>
-</div>
-<section id="about-me" class="level2 cv-header">
-<h2 class="cv-header anchored" data-anchor-id="about-me">About Me</h2>
-<div class="text-align">
-<p>Hi, my name is Max Lorsignol.</p>
-<p>I am a recent graduate with a Master’s degree in Geomatics for Environmental Management from the University of British Columbia. Inspired by my father’s mountaineering maps in my younger years and my love for the outdoors, my passion lies in the collection, analysis, and visualization of earths many surfaces and spatial information. I aim to apply my technical skills and field experience to address critical challenges in environmental conservation, climate change mitigation, and sustainable land management, working toward innovative solutions for our changing world. When not developing digital cartographic solutions, I can be found outdoors, exploring the Pacific Northwest’s mountains.</p>
-</div>
-</section>
-<section id="cv" class="level2 cv-header">
-<h2 class="cv-header anchored" data-anchor-id="cv">CV</h2>
-<p><embed src="LGEO_resume_no_headshot.pdf" class="pdf-frame" style="width:100.0%" height="1050"></p>
-<p><a href="LGEO_resume_no_headshot.pdf" class="btn" target="_blank">Download CV (PDF)</a></p>
-</section>
-<section id="contact" class="level2 contact-header">
-<h2 class="contact-header anchored" data-anchor-id="contact">Contact</h2>
-<div class="hero-links">
-<p><a href="https://www.linkedin.com/in/max-lorsignol-bb854595/" class="btn btn-sm" target="_blank">LinkedIn</a> <a href="https://github.com/maxlorsignol" class="btn btn-sm" target="_blank">GitHub</a> <a href="mailto:maxlorsignol@gmail.com" class="btn btn-sm">Email</a></p>
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">All Projects</h1>
 </div>
 
 
-</section>
 
-</main> <!-- /main -->
+<div class="quarto-title-meta column-page">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<p>Welcome to my project portfolio.</p>
+<p>Below is a selection of GIS, remote-sensing, photogrammetry, and cartography work I’ve done in academic, professional, and personal contexts.</p>
+<p>Each card links to a dedicated project page with methods, data sources, and results.</p>
+
+
+
+
+<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1764571265723" data-listing-reading-time-sort="4" data-listing-word-count-sort="751">
+<a href="./classification.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/classification_front_image.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Classification
+</h5>
+<div class="card-text listing-description">
+The Remote Sensing course in MGEM taught me how to produce landscape classifications using a variety of supervised and unsupervised classification processes. Fascinated by…
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1764570992429" data-listing-reading-time-sort="3" data-listing-word-count-sort="576">
+<a href="./itd.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/itd_front_image.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Individual Tree Detection Methods
+</h5>
+<div class="card-text listing-description">
+In this report, I preprocess and analyze LiDAR data using R and various geospatial libraries in R such as lidR, terra, and tidyverse. The objective is to detect trees…
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1764571565379" data-listing-reading-time-sort="6" data-listing-word-count-sort="1113">
+<a href="./whalesanctuary.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./images/whale_front_image.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Kauai Whale Sanctuary Extension Proposal
+</h5>
+<div class="card-text listing-description">
+This project focuses on proposing an extension to the existing whale sanctuary near the island of Kauai, Hawaii. Based on recent humpback whale sightings data and…
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="3" data-listing-file-modified-sort="1764437996123" data-listing-reading-time-sort="7" data-listing-word-count-sort="1280">
+<a href="./murrelet.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top"><img src="images/murrelet_SEM.png" style="height: 150px;"  class="thumbnail-image card-img"/></p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Marbled Murrelet Habitat Connectivity
+</h5>
+<div class="card-text listing-description">
+This study aims to investigate the relationship between nesting habitats of the Marbled Murrelet and mapped sensitive ecosystems on Gambier Island in British Columbia. Using…
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+<div class="g-col-1" data-index="4" data-listing-file-modified-sort="1764571601405" data-listing-reading-time-sort="9" data-listing-word-count-sort="1669">
+<a href="./OECMParcelSelection.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<div class="listing-item-img-placeholder card-img-top" style="height: 150px;">&nbsp;</div>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+OECM Parcel Selection
+</h5>
+<div class="card-text listing-description">
+This project focuses on identifying and designating Other Effective Area-Based Conservation Measures (OECM) within the Átl’ḵa7tsem/Howe Sound Biosphere Region. Using data…
+</div>
+<div class="card-attribution card-text-small start">
+<div class="listing-author">
+
+</div>
+</div>
+</div>
+</div>
+</a>
+</div>
+</div>
+<div class="listing-no-matching d-none">
+No matching items
+</div>
+</div></main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

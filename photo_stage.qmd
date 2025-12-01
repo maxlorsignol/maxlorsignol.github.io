@@ -1,0 +1,32 @@
+---
+title: "Photoshoot Stage"
+format: html
+image: "images/photoshoot_stage/IMG_2805.HEIC"
+editor: source
+---
+
+This project involved designing and building a versatile indoor photoshoot stage for a small production space. I created a modular, durable platform that could work for portrait photography, product shoots, and small creative sets.
+
+The build included:
+
+-   Constructing a raised wooden stage with a smooth, stable surface capable of supporting lighting, props, and multiple subjects.
+
+![single frame model](images/photoshoot_stage/Image%202025-10-08%20at%2018.34%20(1).JPG)
+
+![overall design idea](images/photoshoot_stage/Screenshot%202025-10-08%20at%2019.29.00.PNG)
+
+-   Custom trim and edging to create a clean visual boundary between the stage and surrounding studio space.
+
+![modelled single frame with subfloor](images/photoshoot_stage/Image%202025-10-08%20at%2018.34.JPG)
+
+![modelled single frame with step nosing](images/photoshoot_stage/Image%202025-10-08%20at%2018.32.JPG)
+
+-   Optimizing lighting conditions, with the platform designed to bounce soft light and minimize unwanted shadows.
+
+![finished frames](images/photoshoot_stage/IMG_2780.HEIC) ![frames with the subfloor](images/photoshoot_stage/IMG_2784.HEIC)
+
+![hardwood flooring](images/photoshoot_stage/IMG_2790.HEIC) ![prepping the precise cuts](images/photoshoot_stage/IMG_2795.HEIC)
+
+![precise cuts](images/photoshoot_stage/IMG_2800.HEIC) ![finished product](images/photoshoot_stage/IMG_2805.HEIC)
+
+This was a full end-to-end build: design, materials sourcing, fabrication, assembly, and finishing. The final result is a bright, minimal, and highly functional stage that elevates the quality and flexibility of indoor studio shoots.

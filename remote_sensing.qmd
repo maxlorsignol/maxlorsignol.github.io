@@ -1,0 +1,21 @@
+---
+title: ""
+page-layout: full
+
+listing:
+  contents:
+    - classification.qmd
+    - itd.qmd
+    - murrelet.qmd
+  type: grid
+
+  sort: "title"
+  categories: false  # show categories under titles if present
+
+---
+
+# Remote Sensing Projects
+
+These projects emphasize **satellite and airborne data**, including image classification, LiDAR-based analysis, and integration of spectral information into ecological questions.
+
+The cards below link to remote sensing projects, many of which also connect back to GIS analyses and conservation applications.

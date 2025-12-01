@@ -1,7 +1,8 @@
 ---
 title: "OECM Parcel Selection"
 format: html
-editor: visual
+image: "images/oecm_front_image.png"
+editor: source
 ---
 
 ::: {.callout-note collapse="false"}

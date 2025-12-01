@@ -1,18 +1,455 @@
-/* Full-screen background image for the whole page */
+/* -------------------------------------------------------
+   GLOBAL
+------------------------------------------------------- */
+
+/* Background: warm paper + subtle contour lines */
 body {
-  background-image: url("images/background_image_howesound.jpg"); /* <-- change this */
-  background-size: cover;      /* scale to fill the screen */
-  background-repeat: no-repeat;
-  background-position: center center;
-  background-attachment: fixed; /* keeps it static when scrolling */
+  background-color: #F3EEE7; /* secondary */
+  color: #1f2933;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "SF Pro Text",
+               "Segoe UI", Roboto, sans-serif;
+  line-height: 1.6;
 }
 
-/* Add a dark translucent overlay on top of the image */
+/* Contour lines overlay (you'll need an SVG or PNG in images/contours.svg) */
 body::before {
   content: "";
   position: fixed;
-  inset: 0;                 /* top:0, left:0, right:0, bottom:0 */
-  background: rgba(255, 255, 255, 0.5);  /* adjust opacity here */
-  z-index: -1;              /* stay behind all content */
+  inset: 0;
+  background-image: url("images/contours.svg"); /* your contour file */
+  background-repeat: repeat;
+  background-size: 2000px auto;
+  opacity: 0.12;              /* subtle */
+  pointer-events: none;
+  z-index: -1;
 }
 
+/* Center specific section headings */
+.cv-header,
+.contact-header {
+  text-align: center;
+}
+
+.text-align {
+  text-align: center;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Center content and give it breathing room on large screens */
+main.content {
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* Typography basics */
+h1, h2, h3, h4, h5, h6 {
+  font-family: "SF Pro Display", system-ui, -apple-system, BlinkMacSystemFont,
+               "Segoe UI", Roboto, sans-serif;
+  font-weight: 600;
+  color: #426f85; /* primary */
+}
+
+p, li {
+  font-size: 1.02rem;
+}
+
+/* Stronger emphasis */
+strong {
+  font-weight: 600;
+}
+
+/* -------------------------------------------------------
+   NAVBAR
+------------------------------------------------------- */
+
+.navbar {
+  background-color: #134c67 !important; /* primary */
+  border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.navbar .navbar-brand,
+.navbar .navbar-brand:focus,
+.navbar .navbar-brand:hover {
+  color: #F3EEE7 !important;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+}
+
+.navbar-dark .navbar-nav .nav-link {
+  color: #E5E2DB !important;
+  font-size: 0.95rem;
+}
+
+.navbar-dark .navbar-nav .nav-link:hover,
+.navbar-dark .navbar-nav .nav-link:focus,
+.navbar-dark .navbar-nav .nav-link.active {
+  color: #F7A531 !important; /* accent */
+}
+
+/* Dropdown menu styling */
+.dropdown-menu {
+  background-color: #134c67;
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.dropdown-item {
+  color: #E5E2DB;
+}
+
+.dropdown-item:hover,
+.dropdown-item:focus {
+  background-color: #426f85;
+  color: #F7A531;
+}
+
+/* Wrapper for any stylized iframe (interactive plots, maps, etc.) */
+.iframe-frame {
+  width: 100%;
+  min-height: 600px;
+
+  padding: 0; /* adjust if you want padding inside */
+  border-radius: 1rem;
+
+  background: rgba(255, 255, 255, 0.18); /* translucent/glass effect */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 12px 32px rgba(11, 27, 43, 0.18);
+
+  overflow: hidden; /* make rounded corners actually clip iframe */
+  margin-top: 1rem;
+  margin-bottom: 2rem;
+}
+
+/* Circular frame wrapper */
+.iframe-circle {
+  width: 500px;       /* adjust size */
+  height: 500px;
+  margin: 0 auto;     /* center horizontally */
+  
+  border-radius: 50%; /* <-- makes it a perfect circle */
+  overflow: hidden;   /* <-- crops the iframe inside the circle */
+  
+  background: rgba(255, 255, 255, 0.18); /* glass-effect backdrop */
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+
+  border: 2px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 15px 40px rgba(11, 27, 43, 0.22);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Iframe inside circle */
+.styled-iframe {
+  width: 110%;
+  height: 110%;
+  border: none;
+
+  /* Center the content visually */
+  transform: translate(-5%, -5%);
+}
+
+
+/* Actual iframe inside the frame */
+.styled-iframe {
+  width: 100%;
+  height: 600px;
+  border: none;
+  display: block;
+}
+
+
+.pdf-frame {
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.18); /* light translucent wash */
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  box-shadow: 0 12px 32px rgba(11, 27, 43, 0.18);
+  overflow: hidden;
+}
+
+.mapping-frame {
+  border-radius: 1rem;
+  background: rgba(243, 238, 231, 0.45); /* warm paper tone */
+  padding: 1rem;
+  box-shadow: 0 20px 45px rgba(11, 27, 43, 0.12);
+}
+
+/* -------------------------------------------------------
+   LINKS & ACCENTS
+------------------------------------------------------- */
+
+a {
+  color: #F7A531;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #c77811;
+}
+
+/* Buttons styled with accent */
+.btn-primary, .btn {
+  background-color: #F7A531;
+  border-color: #F7A531;
+  color: #426f85;
+  font-weight: 500;
+}
+
+.btn-primary:hover, .btn:hover {
+  background-color: #c77811;
+  border-color: #c77811;
+  color: #426f85;
+}
+
+/* -------------------------------------------------------
+   ABOUT / TRESTLES TEMPLATE TWEAKS
+------------------------------------------------------- */
+
+/* Make the about card float a bit and feel like a panel */
+#about {
+  margin-top: 1.5rem;
+}
+
+#about .about-contents,
+#about .about-entity {
+  background: rgba(243, 238, 231, 0.98);
+  border-radius: 1rem;
+  padding: 1.5rem 2rem;
+  box-shadow: 0 18px 40px rgba(66, 111, 133, 0.18);
+}
+
+/* Headshot styling */
+#about img {
+  border-radius: 999px;
+  box-shadow: 0 8px 18px rgba(66, 111, 133, 0.35);
+}
+
+/* Social links row */
+#about .about-links a {
+  color: #426f85;
+  font-weight: 500;
+}
+
+#about .about-links a:hover {
+  color: #F7A531;
+}
+
+/* -------------------------------------------------------
+   SECTIONS & CARDS (for big map / project layouts)
+------------------------------------------------------- */
+
+/* Section blocks for different homepage areas */
+.section-block {
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  padding: 2.5rem 2.5rem;
+  border-radius: 1.2rem;
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 20px 45px rgba(66, 111, 133, 0.12);
+}
+
+/* Section headings */
+.section-block h2 {
+  margin-bottom: 1rem;
+}
+
+/* More gap between columns everywhere */
+.columns {
+  gap: 2.5rem;
+}
+
+/* Project cards grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
+  gap: 1.75rem;
+  margin-top: 1.5rem;
+}
+
+/* Individual project card */
+.project-card {
+  background: #ffffff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 12px 28px rgba(66, 111, 133, 0.12);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  border: 1px solid rgba(66, 111, 133, 0.06);
+}
+
+/* Extra breathing room between headshot and text in hero */
+.hero-block .columns {
+  column-gap: 3.5rem;
+  gap: 3.5rem;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 18px 40px rgba(66, 111, 133, 0.16);
+}
+
+/* Large image/map at top of card */
+.project-card img,
+.project-card .map-frame {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+/* If using iframe embed for map */
+.map-frame {
+  border: none;
+}
+
+/* Card body */
+.project-card-body {
+  padding: 1.25rem 1.4rem 1.6rem;
+}
+
+.project-card-title {
+  font-weight: 600;
+  margin-bottom: 0.4rem;
+  color: #426f85;
+}
+
+.project-card-meta {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: #6B7280;
+  margin-bottom: 0.6rem;
+}
+
+.project-card-description {
+  font-size: 0.95rem;
+  color: #374151;
+}
+
+/* 'View project' link */
+.project-card-footer {
+  margin-top: 0.9rem;
+}
+
+/* -------------------------------------------------------
+   FULL-WIDTH MAP / IMAGE SECTIONS
+------------------------------------------------------- */
+
+.full-width-strip {
+  margin: 2.5rem calc(-50vw + 50%);
+  padding: 0;
+}
+
+.full-width-strip-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* Full-width map wrapper */
+.full-width-map {
+  width: 100%;
+  min-height: 420px;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  box-shadow: 0 22px 44px rgba(66, 111, 133, 0.25);
+}
+
+/* Make leaflet maps fill the wrapper */
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}
+
+/* -------------------------------------------------------
+   BLOG / POST LISTS
+------------------------------------------------------- */
+
+.post-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.post-list li {
+  margin-bottom: 1.3rem;
+}
+
+.post-title {
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.post-meta {
+  font-size: 0.85rem;
+  color: #6B7280;
+}
+
+/* -------------------------------------------------------
+   CV / CONTACT SECTION
+------------------------------------------------------- */
+
+.cv-contact-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .cv-contact-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* PDF frame styling */
+.cv-frame {
+  width: 100%;
+  min-height: 550px;     /* taller viewer */
+  border-radius: 0.75rem;
+  border: 1px solid rgba(66, 111, 133, 0.12);
+  box-shadow: 0 18px 40px rgba(66, 111, 133, 0.16);
+  overflow: hidden;
+}
+
+/* Make the iframe fill the frame */
+.cv-frame iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Contact list */
+.contact-list {
+  list-style: none;
+  padding-left: 0;
+}
+
+.contact-list li {
+  margin-bottom: 0.5rem;
+  font-size: 0.95rem;
+}
+
+.contact-label {
+  font-weight: 600;
+  color: #426f85;
+  margin-right: 0.5rem;
+}
+
+/* -------------------------------------------------------
+   FOOTER
+------------------------------------------------------- */
+
+footer.footer {
+  border-top: 1px solid rgba(66, 111, 133, 0.08);
+  margin-top: 3rem;
+  padding-top: 1rem;
+  font-size: 0.88rem;
+  color: #6B7280;
+}

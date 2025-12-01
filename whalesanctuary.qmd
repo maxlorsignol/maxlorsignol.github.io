@@ -1,6 +1,7 @@
 ---
 title: "Kauai Whale Sanctuary Extension Proposal"
 format: html
+image: "images/whale_front_image.png"
 editor: visual
 ---
 

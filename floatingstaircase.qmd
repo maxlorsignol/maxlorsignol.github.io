@@ -1,6 +1,7 @@
 ---
 title: "Floating Staircase"
 format: html
+image: "images/staircase_model2.jpeg"
 editor: visual
 ---
 
