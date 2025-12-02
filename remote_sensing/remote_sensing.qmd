@@ -11,7 +11,6 @@ listing:
 
   sort: "title"
   categories: false  # show categories under titles if present
-
 ---
 
 # Remote Sensing Projects

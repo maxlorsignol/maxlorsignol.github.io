@@ -10,25 +10,25 @@ website:
   search: false
   navbar:
     left:
-#      - href: index.qmd
-#        text: Home
+      - href: index.qmd
+        text: Home
 
-      - href: gis.qmd
+      - href: GIS/gis.qmd
         text: GIS
 
-      - href: remote_sensing.qmd
+      - href: remote_sensing/remote_sensing.qmd
         text: Remote Sensing
 
-      - href: personal_projects.qmd
+      - href: personal_projects/personal_projects.qmd
         text: Personal Projects
 
-#       - href: photogrammetry.qmd
+#       - href: photogrammetry/photogrammetry.qmd
 #         text: Photogrammetry
 
-#       - href: orthophotography.qmd
+#       - href: orthophotography/orthophotography.qmd
 #         text: Orthophotography
 
-#       - href: cartography.qmd
+#       - href: cartography/cartography.qmd
 #         text: Cartography
 
     right:
