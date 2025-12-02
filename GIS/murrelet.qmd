@@ -48,7 +48,7 @@ library(dplyr)
 
 # load raster data
 
-hs_class <- rast("~/Desktop/GitHub/maxlorsignol.github.io/data/hs_composite_DL_ClassifyP.tif")
+hs_class <- rast("~/Desktop/GitHub/maxlorsignol.github.io/remote_sensing/data/hs_composite_DL_ClassifyP.tif")
 
 data(hs_class)
 hs_class <- unwrap(hs_class)
