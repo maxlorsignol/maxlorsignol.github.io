@@ -1020,5 +1020,12 @@
     "title": "Playing with NDVI",
     "section": "Where this is going (toward planimetry)",
     "text": "Where this is going (toward planimetry)\nIn this post, we focused on understanding and visualizing NDVI:\n\nWhat NDVI is\nWhy NIR is so useful for vegetation\nHow to compute NDVI from a 4‑band geotiff\nHow to interactively compare RGB, NIR, and NDVI\n\nIn future work, this same NDVI layer can act as a simple mask to separate vegetation from non‑vegetation. That, in turn, is extremely helpful for planimetric mapping:\n\nTracing roads, sidewalks, and building outlines\nSeparating canopy from pavement and rooftops\nCombining spectral information (like NDVI) with manual or semi‑automatic feature extraction\n\nFor now, the goal is just to get comfortable with pixels, bands, NIR, and NDVI. Once those concepts feel solid, we’ll start using NDVI as one input to more advanced planimetric workflows."
+  },
+  {
+    "objectID": "home.html",
+    "href": "home.html",
+    "title": "Home",
+    "section": "",
+    "text": "OECM Parcel Selection\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nKauai Whale Sanctuary Extension Proposal\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nMarbled Murrelet Habitat Connectivity\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nClassification\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nIndividual Tree Detection Methods\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPlaying with NDVI\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nOff Grid Camper Van Build\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nFloating Staircase\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nPhotoshoot Stage\n\n\n\n\n\n\n\n\n\n\n\n\n\n\n\nNo matching items"
   }
 ]

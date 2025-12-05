@@ -66,5 +66,19 @@
       "/personal_projects/vanlife.html",
       "/personal_projects/photo_stage.html"
     ]
+  },
+  {
+    "listing": "/home.html",
+    "items": [
+      "/GIS/OECMParcelSelection.html",
+      "/GIS/whalesanctuary.html",
+      "/GIS/murrelet.html",
+      "/remote_sensing/classification.html",
+      "/remote_sensing/itd.html",
+      "/remote_sensing/NDVIplay.html",
+      "/personal_projects/vanlife.html",
+      "/personal_projects/floatingstaircase.html",
+      "/personal_projects/photo_stage.html"
+    ]
   }
 ]

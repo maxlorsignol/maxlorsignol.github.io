@@ -1,0 +1,20 @@
+---
+title: "Home"
+page-layout: full
+
+listing:
+  contents:
+    - OECMParcelSelection.qmd
+    - whalesanctuary.qmd
+    - murrelet.qmd
+    - classification.qmd
+    - itd.qmd
+    - NDVIplay.qmd
+    - vanlife.qmd
+    - floatingstaircase.qmd
+    - photo_stage.qmd
+  type: grid
+  sort: none
+
+  categories: FALSE
+---
