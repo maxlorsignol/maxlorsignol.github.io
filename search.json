@@ -971,5 +971,54 @@
     "title": "Playing with NDVI",
     "section": "Glowing Plants",
     "text": "Glowing Plants\nPlants reflect a huge amount of light in the near-infrared wavelength, a lot more than other things like pavement, roofs, or soil. This reflection is caused by the structure of the leaves and needles; the chlorophyll absorbs most of the red light, and the NIR is reflected by the plants cell walls, otherwise it would overheat. NDVI takes advantage of this difference. Lets see it.\n\nNow admittedly, we could distinguish between plant and non-plant pretty easily without having to do any raster math, but in this final NDVI image, we can see that the houses are brown, representing a more negative value nearing negative 1 and the vegetation as green, a more positive number nearing one.\nAnother example below shows how NDVI can help distinguish seamingly similar substances. One might think that both the sports field and the neighbouring field are both lushious and well kept terrain, but with the NDVI goggles, we can clearly see that the sports field is either really unhealthy grass, or more realistically, turf."
+  },
+  {
+    "objectID": "remote_sensing/Playing_with_NDVI.html",
+    "href": "remote_sensing/Playing_with_NDVI.html",
+    "title": "Playing with NDVI",
+    "section": "",
+    "text": "NDVI stands for Normalized Difference Vegetation Index and is derived by doing some simple band math on specific wavelengths of light that bounce off Earth’s surface. More specifically, it uses a Near Infrared (NIR) wavelength of light (which we cannot see) and the red wavelength (which we can) in the following formula:\n\n\\(NDVI = \\dfrac{NIR - Red}{NIR + Red}\\)\n\nThe value of NDVI, which ranges between -1 and +1, can tell us about the “greenness” or “health” of vegetation. I put these words in quotes because NDVI is ultimately just a number, but it’s a very useful one for assessing the general location and condition of vegetation.\nTo get NDVI, we need to introduce a fourth part of the visible/near-visible spectrum: NIR. You can think of it as a new “color” that our eyes cannot see but sensors can."
+  },
+  {
+    "objectID": "remote_sensing/Playing_with_NDVI.html#what-is-ndvi",
+    "href": "remote_sensing/Playing_with_NDVI.html#what-is-ndvi",
+    "title": "Playing with NDVI",
+    "section": "",
+    "text": "NDVI stands for Normalized Difference Vegetation Index and is derived by doing some simple band math on specific wavelengths of light that bounce off Earth’s surface. More specifically, it uses a Near Infrared (NIR) wavelength of light (which we cannot see) and the red wavelength (which we can) in the following formula:\n\n\\(NDVI = \\dfrac{NIR - Red}{NIR + Red}\\)\n\nThe value of NDVI, which ranges between -1 and +1, can tell us about the “greenness” or “health” of vegetation. I put these words in quotes because NDVI is ultimately just a number, but it’s a very useful one for assessing the general location and condition of vegetation.\nTo get NDVI, we need to introduce a fourth part of the visible/near-visible spectrum: NIR. You can think of it as a new “color” that our eyes cannot see but sensors can."
+  },
+  {
+    "objectID": "remote_sensing/Playing_with_NDVI.html#pixels-and-bands",
+    "href": "remote_sensing/Playing_with_NDVI.html#pixels-and-bands",
+    "title": "Playing with NDVI",
+    "section": "Pixels and bands",
+    "text": "Pixels and bands\nYour geotiff (or orthophoto) is basically a big grid of pixels.\n\nEach pixel is a little container of numbers.\nIn a 4‑band image, each pixel might store:\n\nBand 1 = Red\n\nBand 2 = Green\n\nBand 3 = Blue\n\nBand 4 = NIR\n\n\nThe raw numbers are reflectance or brightness values (for example, 0–255 or a scaled 0–10000). NDVI doesn’t care about the exact scale, because it uses a ratio of NIR and Red.\nWe can first visualize a standard RGB image of Vancouver:\n\nLooks pretty normal. Now let’s change which wavelength is represented by each channel. I’ll map:\n\nRed channel → Green\n\nGreen channel → Blue\n\nBlue channel → NIR\n\nThe same picture becomes:\n\nThis isn’t NDVI yet, but by visualizing NIR in this way, the vegetation really pops. The reason is:\n\nVegetation reflects a lot of NIR\n\nVegetation absorbs a lot of Red (for photosynthesis)\n\nThat contrast is exactly what NDVI uses."
+  },
+  {
+    "objectID": "remote_sensing/Playing_with_NDVI.html#how-does-ndvi-work",
+    "href": "remote_sensing/Playing_with_NDVI.html#how-does-ndvi-work",
+    "title": "Playing with NDVI",
+    "section": "How does NDVI work?",
+    "text": "How does NDVI work?\nIf a pixel contains healthy vegetation:\n\nNIR is high (strong reflection)\nRed is low (strong absorption)\n\nSo:\n\n\\((NIR - Red)\\) is a big positive number\n\n\\((NIR + Red)\\) is just a scaling factor\n\nThis gives values like:\n\n+0.6 to +0.9 → dense, healthy vegetation\n\n+0.2 to +0.5 → sparse or stressed vegetation\n\n0 to +0.1 → bare soil, rock, built surfaces\n\nnegative values → water, clouds, snow, deep shadows\n\nNDVI turns raw bands into a single, interpretable “greenness” layer that’s extremely common in remote sensing."
+  },
+  {
+    "objectID": "remote_sensing/Playing_with_NDVI.html#generating-ndvi-and-preview-images-in-r",
+    "href": "remote_sensing/Playing_with_NDVI.html#generating-ndvi-and-preview-images-in-r",
+    "title": "Playing with NDVI",
+    "section": "Generating NDVI and preview images in R",
+    "text": "Generating NDVI and preview images in R\nBelow, we use R and the terra package to:\n\nLoad a 4‑band geotiff\n\nSplit out the bands\n\nCompute NDVI\n\nSave three PNG images:\n\nRGB\nGBNIR (a fake‑color composite)\nNDVI\n\n\nUpdate the path to your own 4‑band image (“images/63-72-cropped.tif”) as needed.\n\n\nCode\nlibrary(terra)\n\n# Path to your 4-band image (update this)\n# Assumed band order: 1 = Red, 2 = Green, 3 = Blue, 4 = NIR\nfourband &lt;- rast(\"~/Desktop/GitHub/maxlorsignol.github.io/remote_sensing/images/63-72-cropped.tif\")\n\nred   &lt;- fourband[[1]]\ngreen &lt;- fourband[[2]]\nblue  &lt;- fourband[[3]]\nnir   &lt;- fourband[[4]]\n\n# NDVI calculation\nndvi &lt;- (nir - red) / (nir + red)\n\n# Make sure the images folder exists\ndir.create(\"images_2\", showWarnings = FALSE)\n\n# 1. Save an RGB view\npng(\"images/RGB_vancouver.png\", width = 800, height = 800)\nplotRGB(fourband, r = 1, g = 2, b = 3, stretch = \"lin\")\ndev.off()\n\n\nquartz_off_screen \n                2 \n\n\nCode\n# 2. Save a G-B-NIR composite\npng(\"images/GBNIR_vancouver.png\", width = 800, height = 800)\nplotRGB(fourband, r = 2, g = 3, b = 4, stretch = \"lin\")\ndev.off()\n\n\nquartz_off_screen \n                2 \n\n\nCode\n# 3. Save an NDVI visualization\npng(\"images/NDVI_vancouver.png\", width = 800, height = 800)\nplot(\n  ndvi,\n  col  = terrain.colors(100),\n  main = \"NDVI\"\n)\ndev.off()\n\n\nquartz_off_screen \n                2 \n\n\nAfter running this chunk once (during render), you’ll have three PNGs in your images/ folder that we can use in a simple interactive slider."
+  },
+  {
+    "objectID": "remote_sensing/Playing_with_NDVI.html#slide-between-rgb-nir-and-ndvi",
+    "href": "remote_sensing/Playing_with_NDVI.html#slide-between-rgb-nir-and-ndvi",
+    "title": "Playing with NDVI",
+    "section": "Slide between RGB, NIR, and NDVI",
+    "text": "Slide between RGB, NIR, and NDVI\nTo really see what NDVI is doing, it helps to slide between different visualizations of the same scene.\n\nRGB vs. GBNIR\n\n\n&lt;img src=\"images/RGB_vancouver.png\" width=\"100%\"&gt;\n\n\n&lt;img src=\"images/GBNIR_vancouver.png\" width=\"100%\"&gt;\n\n\n\n\nRGB vs. NDVI\n\n\n&lt;img src=\"images/RGB_vancouver.png\" width=\"100%\"&gt;\n\n\n&lt;img src=\"images/NDVI_vancouver.png\" width=\"100%\"&gt;\n\n\n\n\nGBNIR vs. NDVI\n\n\n&lt;img src=\"images/GBNIR_vancouver.png\" width=\"100%\"&gt;\n\n\n&lt;img src=\"images/NDVI_vancouver.png\" width=\"100%\"&gt;"
+  },
+  {
+    "objectID": "remote_sensing/Playing_with_NDVI.html#where-this-is-going-toward-planimetry",
+    "href": "remote_sensing/Playing_with_NDVI.html#where-this-is-going-toward-planimetry",
+    "title": "Playing with NDVI",
+    "section": "Where this is going (toward planimetry)",
+    "text": "Where this is going (toward planimetry)\nIn this post, we focused on understanding and visualizing NDVI:\n\nWhat NDVI is\nWhy NIR is so useful for vegetation\nHow to compute NDVI from a 4‑band geotiff\nHow to interactively compare RGB, NIR, and NDVI\n\nIn future work, this same NDVI layer can act as a simple mask to separate vegetation from non‑vegetation. That, in turn, is extremely helpful for planimetric mapping:\n\nTracing roads, sidewalks, and building outlines\nSeparating canopy from pavement and rooftops\nCombining spectral information (like NDVI) with manual or semi‑automatic feature extraction\n\nFor now, the goal is just to get comfortable with pixels, bands, NIR, and NDVI. Once those concepts feel solid, we’ll start using NDVI as one input to more advanced planimetric workflows."
   }
 ]
