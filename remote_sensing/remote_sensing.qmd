@@ -6,7 +6,7 @@ listing:
   contents:
     - classification.qmd
     - itd.qmd
-    - murrelet.qmd
+    - NDVIplay.qmd
   type: grid
 
   sort: "title"

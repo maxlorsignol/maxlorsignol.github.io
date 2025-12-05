@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>remote_sensing – Max Lorsignol</title>
+<title>Playing with NDVI – Max Lorsignol</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -25,8 +25,6 @@ ul.task-list li input[type="checkbox"] {
 
 <script src="../site_libs/quarto-nav/quarto-nav.js"></script>
 <script src="../site_libs/quarto-nav/headroom.min.js"></script>
-<script src="../site_libs/quarto-listing/list.min.js"></script>
-<script src="../site_libs/quarto-listing/quarto-listing.js"></script>
 <script src="../site_libs/clipboard/clipboard.min.js"></script>
 <script src="../site_libs/quarto-html/quarto.js"></script>
 <script src="../site_libs/quarto-html/popper.min.js"></script>
@@ -52,35 +50,6 @@ ul.task-list li input[type="checkbox"] {
     "search-label": "Search"
   }
 }</script>
-<script>
-
-  window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
-    if (!listingTargetEl) {
-      // No listing discovered, do not attach.
-      return; 
-    }
-
-    const options = {
-      valueNames: ['listing-title','listing-author','listing-image','listing-description',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
-      
-      searchColumns: ["listing-title","listing-author","listing-image","listing-description"],
-    };
-
-    window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
-
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  });
-
-  window.addEventListener('hashchange',() => {
-    if (window['quarto-listing-loaded']) {
-      window['quarto-listing-loaded']();
-    }
-  })
-  </script>
 
   <script src="https://cdnjs.cloudflare.com/polyfill/v3/polyfill.min.js?features=es6"></script>
   <script src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js" type="text/javascript"></script>
@@ -140,7 +109,7 @@ window.Quarto = {
 <span class="menu-text">GIS</span></a>
   </li>  
   <li class="nav-item">
-    <a class="nav-link active" href="../remote_sensing/remote_sensing.html" aria-current="page"> 
+    <a class="nav-link" href="../remote_sensing/remote_sensing.html"> 
 <span class="menu-text">Remote Sensing</span></a>
   </li>  
   <li class="nav-item">
@@ -161,7 +130,7 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
@@ -169,98 +138,71 @@ window.Quarto = {
     <h2 id="toc-title">On this page</h2>
    
   <ul>
-  <li><a href="#remote-sensing-projects" id="toc-remote-sensing-projects" class="nav-link active" data-scroll-target="#remote-sensing-projects">Remote Sensing Projects</a></li>
+  <li><a href="#what-is-ndvi" id="toc-what-is-ndvi" class="nav-link active" data-scroll-target="#what-is-ndvi">What is NDVI?</a></li>
+  <li><a href="#glowing-plants" id="toc-glowing-plants" class="nav-link" data-scroll-target="#glowing-plants">Glowing Plants</a></li>
+  <li><a href="#why-do-we-care" id="toc-why-do-we-care" class="nav-link" data-scroll-target="#why-do-we-care">Why do we care?</a></li>
   </ul>
 </nav>
     </div>
 <!-- main -->
-<main class="content column-page-left" id="quarto-document-content">
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Playing with NDVI</h1>
+</div>
 
 
 
+<div class="quarto-title-meta">
 
-<section id="remote-sensing-projects" class="level1">
-<h1>Remote Sensing Projects</h1>
-<p>These projects emphasize <strong>satellite and airborne data</strong>, including image classification, LiDAR-based analysis, and integration of spectral information into ecological questions.</p>
-<p>The cards below link to remote sensing projects, many of which also connect back to GIS analyses and conservation applications.</p>
+    
+  
+    
+  </div>
+  
 
+
+</header>
+
+
+<section id="what-is-ndvi" class="level2">
+<h2 class="anchored" data-anchor-id="what-is-ndvi">What is NDVI?</h2>
+<p>NDVI stands for Normalized Difference Vegetation Index and is derived by doing some fancy math on specific wavelengths of light that bounces off of Earth’s surface. More specifically, it uses a Near Infrared (NIR) wavelength of light (which we cannot see) and the red wavelength (which we can) in the following formula to output NDVI.</p>
+<div class="text-align">
+<p><span class="math inline">\(NDVI = (NIR - red) / (NIR + red)\)</span></p>
+</div>
+<p>The value of NDVI, between -1 and +1, can tell us about the ‘greenness’ or ‘health’ of vegetation. I put these words in brackets because it ultimately is just a number, but it certainly helps us with assessing the general location and health of vegetation.</p>
+<p>In order to get NDVI, we need to introduce a fourth part of the electromagnetic spectrum, NIR. Think about it as a new ‘color’. Below is a picture in your classic red, green and blue pixels RGB.</p>
+<p><img src="images/RGB_vancouver.png" class="img-fluid"></p>
+<p>Looks pretty normal to me. Now lets change which wavelength is represented as by each pixel. I am going to change the red to green, the green to blue, and the blue to NIR. The same picture becomes:</p>
+<p><img src="images/GBNIR_vancouver.png" class="img-fluid"></p>
+<p>Now, were not seeing NDVI here yet, but by visualizing this NIR wavelength, we can really see that the vegetation really pops out! Why?</p>
+</section>
+<section id="glowing-plants" class="level2">
+<h2 class="anchored" data-anchor-id="glowing-plants">Glowing Plants</h2>
+<p>Plants reflect a huge amount of light in the near-infrared wavelength, a lot more than other things like pavement, roofs, or soil. This reflection is caused by the structure of the leaves and needles; the chlorophyll absorbs most of the red light, and the NIR is reflected by the plants cell walls, otherwise it would overheat. NDVI takes advantage of this difference. Lets see it.</p>
+<p><img src="images/NDVI_vancouver.png" class="img-fluid"></p>
+<p>Now admittedly, we could distinguish between plant and non-plant pretty easily without having to do any raster math, but in this final NDVI image, we can see that the houses are brown, representing a more negative value nearing negative 1 and the vegetation as green, a more positive number nearing one.</p>
+<p>Another example below shows how NDVI can help distinguish seamingly similar substances. One might think that both the sports field and the neighbouring field are both lushious and well kept terrain, but with the NDVI goggles, we can clearly see that the sports field is either really unhealthy grass, or more realistically, turf.</p>
+<p><img src="images/field_rgb.png" class="img-fluid"></p>
+<p><img src="images/field_ndvi.png" class="img-fluid"></p>
+</section>
+<section id="why-do-we-care" class="level2">
+<h2 class="anchored" data-anchor-id="why-do-we-care">Why do we care?</h2>
+<p>NDVI is one of the simplest things you can compute from remotely sensed imagery and it’s also one of the most powerful. With just these two wavelengths you can:</p>
+<ul>
+<li><p>Detect vegetation location</p></li>
+<li><p>Monitor vegetation health</p></li>
+<li><p>Track seasonal change</p></li>
+<li><p>Highlight vegetation vs.&nbsp;built environments</p></li>
+<li><p>Detect disturbances (fire, harvest, storms)</p></li>
+</ul>
 
 
 </section>
 
-<div class="quarto-listing quarto-listing-container-grid" id="listing-listing">
-<div class="list grid quarto-listing-cols-3">
-<div class="g-col-1" data-index="0" data-listing-file-modified-sort="1764658566694" data-listing-reading-time-sort="4" data-listing-word-count-sort="751">
-<a href="../remote_sensing/classification.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../remote_sensing/images/classification_front_image.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Classification
-</h5>
-<div class="card-text listing-description">
-The Remote Sensing course in MGEM taught me how to produce landscape classifications using a variety of supervised and unsupervised classification processes. Fascinated by…
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="1" data-listing-file-modified-sort="1764658567367" data-listing-reading-time-sort="3" data-listing-word-count-sort="576">
-<a href="../remote_sensing/itd.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../remote_sensing/images/itd_front_image.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Individual Tree Detection Methods
-</h5>
-<div class="card-text listing-description">
-In this report, I preprocess and analyze LiDAR data using R and various geospatial libraries in R such as lidR, terra, and tidyverse. The objective is to detect trees…
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-<div class="g-col-1" data-index="2" data-listing-file-modified-sort="1764912655069" data-listing-reading-time-sort="3" data-listing-word-count-sort="433">
-<a href="../remote_sensing/NDVIplay.html" class="quarto-grid-link">
-<div class="quarto-grid-item card h-100 card-left">
-<p class="card-img-top">
-<img loading="lazy" src="../remote_sensing/images/Screenshot 2025-12-04 at 21.30.33.png" class="thumbnail-image card-img" style="height: 150px;">
-</p>
-<div class="card-body post-contents">
-<h5 class="no-anchor card-title listing-title">
-Playing with NDVI
-</h5>
-<div class="card-text listing-description">
-NDVI stands for Normalized Difference Vegetation Index and is derived by doing some fancy math on specific wavelengths of light that bounces off of Earth’s surface. More…
-</div>
-<div class="card-attribution card-text-small start">
-<div class="listing-author">
-
-</div>
-</div>
-</div>
-</div>
-</a>
-</div>
-</div>
-<div class="listing-no-matching d-none">
-No matching items
-</div>
-</div></main> <!-- /main -->
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {
